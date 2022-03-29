@@ -12,9 +12,7 @@ package body dashboard_warning_lights with SPARK_Mode is
 
    procedure CheckLight (x: in Switch; y : in TypesOfLights; This : in out Lights) is
    begin
-      if x = On or x = Off or x = Error then
-         This(y).state := x;
-      end if;
+      This(y).state := x;
    end CheckLight;
 
 end dashboard_warning_lights;

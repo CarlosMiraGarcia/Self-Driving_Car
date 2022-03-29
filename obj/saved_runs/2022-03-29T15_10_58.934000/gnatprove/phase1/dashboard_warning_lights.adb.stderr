@@ -1,0 +1,3 @@
+dashboard_warning_lights.ads:21:14: error: expected type "Standard.Boolean"
+dashboard_warning_lights.ads:21:14: error: found type "Lights" defined at line 13
+dashboard_warning_lights.ads:21:23: error: missing ";"

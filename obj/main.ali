@@ -16,7 +16,7 @@ RV NO_DYNAMIC_SIZED_OBJECTS
 RV NO_IMPLEMENTATION_PRAGMAS
 RV NO_OBSOLESCENT_FEATURES
 
-U main%b		main.adb		a7526203 NE OO SU
+U main%b		main.adb		29dd7959 NE OO SU
 W ada%s			ada.ads			ada.ali
 Z ada.calendar.delays%s	a-caldel.adb		a-caldel.ali
 W ada.characters%s	a-charac.ads		a-charac.ali
@@ -40,10 +40,10 @@ D a-stuten.ads		20210520051130 808c40ad ada.strings.utf_encoding%s
 D a-tags.ads		20210520051130 9eaa38c6 ada.tags%s
 D a-textio.ads		20210520051130 aef4d56d ada.text_io%s
 D a-unccon.ads		20210520051130 0e9b276f ada.unchecked_conversion%s
-D dashboard_warning_lights.ads  20220329124924 25121012 dashboard_warning_lights%s
+D dashboard_warning_lights.ads  20220329141204 25121012 dashboard_warning_lights%s
 D interfac.ads		20210520051132 edec285f interfaces%s
 D i-cstrea.ads		20210520051132 e53d8b8e interfaces.c_streams%s
-D main.adb		20220329132516 4af1da4d main%b
+D main.adb		20220329143308 c47ec117 main%b
 D system.ads		20210520051136 2ffa5114 system%s
 D s-conca7.ads		20210520051132 fcc75b1f system.concat_7%s
 D s-crtl.ads		20210520051132 0ebbdb71 system.crtl%s
@@ -71,26 +71,32 @@ X 4 a-charac.ads
 16K13*Characters 18e19 18|3r10 3r38
 X 5 a-chlat1.ads
 18K24*Latin_1 296e27 18|3w21 3r49
-53e4*ESC{character} 18|19r40 19r82 21r40 21r82 23r40 23r82
+53e4*ESC{character} 18|20r40 20r82 22r40 22r82 24r40 24r82
 X 13 a-textio.ads
 58K13*Text_IO 725e16 18|1w10 1r27
-390U14*Put 18|10s5
-463U14*Put 18|11s5
-506U14*Put_Line 18|19s13 21s13 23s13 39s7
+390U14*Put 18|11s7
+463U14*Put 18|12s7 43s13
+506U14*Put_Line 18|20s13 22s13 24s13 45s16 47s16 49s16 51s16 53s16 55s16
+. 57s16 59s16 61s16 63s16 65s16 67s16 69s16 71s16
 X 15 dashboard_warning_lights.ads
-1K9*dashboard_warning_lights 26e29 18|2w6 2r36 6r16
-4n20*On{4E9} 18|20r37 32r32
-4n24*Off{4E9} 18|18r34
-4n29*Error{4E9} 18|22r37
-10e7*state{4E9} 18|18r26 19r68 20r29 21r68 22r29 23r68 32m23
+1K9*dashboard_warning_lights 24e29 18|2w6 2r36 6r16
+4n20*On{4E9} 18|21r37 32r32
+4n24*Off{4E9} 18|19r34
+4n29*Error{4E9} 18|23r37
+10e7*state{4E9} 18|19r26 20r68 21r29 22r68 23r29 24r68 32m23
 13A9*Lights(9R9)<5E9> 18|6r41
 X 18 main.adb
-5U11*Main 5b11 48l5 48t9
-6a4 Dashboard{15|13A9} 17r16 18r13 19r55 20r16 21r55 22r16 23r55 31r16 32m10
-8U14 Clear 8b14 12l8 12t13 16s7 38s7
-14U14 Print 14b14 27l8 27t13 46s4
-17e11 i{15|5E9} 18r23 19r23 19r65 20r26 21r23 21r65 22r26 23r23 23r65
-29U14 LightsOn 29b14 34l8 34t16 45s4
+5U11*Main 5b11 84l5 84t9
+6a4 Dashboard{15|13A9} 18r16 19r13 20r55 21r16 22r55 23r16 24r55 31r16 32m10
+7i4 Input{integer}
+9U14 Clear 9b14 13l8 13t13 17s7 42s13
+15U14 Print 15b14 27l8 27t13 81s4
+18e11 i{15|5E9} 19r23 20r23 20r65 21r26 22r23 22r65 23r26 24r23 24r65
+29U14 LightsOn 29b14 34l8 34t16 80s4
 31e11 i{15|5E9} 32r20
-36U14 StartingCar 36b14 40l8 40t19 43s4
+36U14 StartingCar 36b14 75l8 75t19
+37I9 Index<short_short_integer> 40r19
+39i11 i{integer}
+40i14 j{37I9} 44r16 46r19 48r19 50r19 52r19 54r19 56r19 58r19 60r19 62r19
+. 64r19 66r19 68r19 70r19
 

@@ -1495,3 +1495,187 @@
     '
   output_parser: GNATprove_Parser
   timestamp: '2022-03-29T13:49:27.219000'
+'2022-03-29T15:08:33.263000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:31:32: error: "A" is undefined
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:08:33.263000'
+'2022-03-29T15:08:54.156000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:20:83: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:08:54.156000'
+'2022-03-29T15:09:14.546000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:09:14.546000'
+'2022-03-29T15:09:38.699000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:09:38.699000'
+'2022-03-29T15:09:57.602000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:21:06: warning: postcondition does not check the
+    outcome of calling "CheckLight" [-gnatw.t]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:09:57.602000'
+'2022-03-29T15:10:30.431000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:21:23: error: invalid prefix in selected component
+    "state"
+
+    dashboard_warning_lights.ads:21:47: error: invalid prefix in selected component
+    "state"
+
+    dashboard_warning_lights.ads:21:72: error: invalid prefix in selected component
+    "state"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:10:30.431000'
+'2022-03-29T15:10:45.579000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:21:24: error: invalid operand types for operator
+    "="
+
+    dashboard_warning_lights.ads:21:24: error: left operand has type "Lights" defined
+    at line 13
+
+    dashboard_warning_lights.ads:21:24: error: right operand has type "Switch" defined
+    at line 4
+
+    dashboard_warning_lights.ads:21:41: error: invalid prefix in selected component
+    "state"
+
+    dashboard_warning_lights.ads:21:66: error: invalid prefix in selected component
+    "state"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:10:45.579000'
+'2022-03-29T15:10:53.913000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:21:23: error: missing ";"
+
+    dashboard_warning_lights.ads:21:25: error: no space allowed here
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:10:53.913000'
+'2022-03-29T15:10:58.934000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:21:14: error: expected type "Standard.Boolean"
+
+    dashboard_warning_lights.ads:21:14: error: found type "Lights" defined at line
+    13
+
+    dashboard_warning_lights.ads:21:23: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:10:58.934000'
+'2022-03-29T15:12:25.768000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T15:12:25.768000'

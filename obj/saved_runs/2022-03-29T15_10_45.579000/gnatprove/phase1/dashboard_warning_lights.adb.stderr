@@ -1,0 +1,5 @@
+dashboard_warning_lights.ads:21:24: error: invalid operand types for operator "="
+dashboard_warning_lights.ads:21:24: error: left operand has type "Lights" defined at line 13
+dashboard_warning_lights.ads:21:24: error: right operand has type "Switch" defined at line 4
+dashboard_warning_lights.ads:21:41: error: invalid prefix in selected component "state"
+dashboard_warning_lights.ads:21:66: error: invalid prefix in selected component "state"

@@ -1,0 +1,3 @@
+dashboard_warning_lights.ads:21:23: error: invalid prefix in selected component "state"
+dashboard_warning_lights.ads:21:47: error: invalid prefix in selected component "state"
+dashboard_warning_lights.ads:21:72: error: invalid prefix in selected component "state"
