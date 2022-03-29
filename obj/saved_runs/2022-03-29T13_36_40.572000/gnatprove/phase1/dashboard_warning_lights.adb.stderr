@@ -1,0 +1,4 @@
+dashboard_warning_lights.adb:1:14: error: missing body for "CheckLight" declared at dashboard_warning_lights.ads:20
+dashboard_warning_lights.adb:13:59: error: "," should be ";"
+dashboard_warning_lights.adb:14:39: error: missing ";"
+dashboard_warning_lights.ads:20:37: error: "," should be ";"

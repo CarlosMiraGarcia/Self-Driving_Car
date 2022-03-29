@@ -1,0 +1,1497 @@
+'2022-03-29T12:09:58.828000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:18:14: medium: postcondition might fail[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:09:58.828000'
+'2022-03-29T12:10:18.904000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:18:14: medium: postcondition might fail[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:10:18.904000'
+'2022-03-29T12:10:34.201000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:18:14: medium: postcondition might fail[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:10:34.201000'
+'2022-03-29T12:13:53.733000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:20:13: error: quantified expression must be parenthesized
+
+    dashboard_warning_lights.ads:21:14: error: quantified expression must be parenthesized
+
+    dashboard_warning_lights.ads:22:04: error: no "begin" for this "end"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:13:53.733000'
+'2022-03-29T12:14:06.416000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:22:04: error: no "begin" for this "end"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:14:06.416000'
+'2022-03-29T12:14:39.264000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:3:14: error: not fully conformant with declaration
+    at dashboard_warning_lights.ads:19
+
+    dashboard_warning_lights.adb:3:14: error: mode of "This" does not match
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:14:39.264000'
+'2022-03-29T12:15:21.162000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:3:14: error: not fully conformant with declaration
+    at dashboard_warning_lights.ads:19
+
+    dashboard_warning_lights.adb:3:14: error: mode of "This" does not match
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:15:21.162000'
+'2022-03-29T12:15:29.332000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:3:14: error: not fully conformant with declaration
+    at dashboard_warning_lights.ads:19
+
+    dashboard_warning_lights.adb:3:14: error: mode of "This" does not match
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:15:29.332000'
+'2022-03-29T12:15:38.651000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:3:14: error: not fully conformant with declaration
+    at dashboard_warning_lights.ads:18
+
+    dashboard_warning_lights.adb:3:14: error: mode of "This" does not match
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:15:38.651000'
+'2022-03-29T12:16:04.912000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:20:42: medium: postcondition might fail, cannot prove
+    This(i).state = Off (e.g. when This(ReadyToDrive).state = Error and This(EcoMode).state
+    = Off and This(Charging).state = Off and This(GeneralFault).state = Off and This(ElectricalFault).state
+    = Off and i = ReadyToDrive)[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:16:04.912000'
+'2022-03-29T12:16:57.954000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:20:42: medium: postcondition might fail, cannot prove
+    This(i).state = Off (e.g. when This(ReadyToDrive).state = Error and This(EcoMode).state
+    = Off and This(Charging).state = Off and This(GeneralFault).state = Off and This(ElectricalFault).state
+    = Off and i = ReadyToDrive)[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:16:57.954000'
+'2022-03-29T12:17:17.899000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: ''
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:17:17.899000'
+'2022-03-29T12:17:21.944000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: ''
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:17:21.944000'
+'2022-03-29T12:17:38.524000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:20:42: medium: postcondition might fail, cannot prove
+    This(i).state = Off (e.g. when This(ReadyToDrive).state = -1 and This(EcoMode).state
+    = Off and This(Charging).state = Off and This(GeneralFault).state = Off and This(ElectricalFault).state
+    = Off and i = ReadyToDrive)[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:17:38.524000'
+'2022-03-29T12:18:41.454000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:21:42: medium: postcondition might fail, cannot prove
+    This(i).state = Off (e.g. when This = (others => (state => On)) and i = ReadyToDrive)[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:18:41.454000'
+'2022-03-29T12:19:02.483000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:21:42: medium: postcondition might fail, cannot prove
+    This(i).state = Off (e.g. when This = (others => (state => On)) and i = ReadyToDrive)[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:19:02.483000'
+'2022-03-29T12:19:35.351000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:6:13: error: invalid prefix in selected component
+    "i"
+
+    dashboard_warning_lights.adb:7:13: error: invalid prefix in selected component
+    "i"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:19:35.351000'
+'2022-03-29T12:19:44.707000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    dashboard_warning_lights.ads:21:42: medium: postcondition might fail, cannot prove
+    This(i).state = Off (e.g. when This = (others => (state => On)) and i = ReadyToDrive)[#0]
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:19:44.707000'
+'2022-03-29T12:20:18.264000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:20:18.264000'
+'2022-03-29T12:23:42.067000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:6:04: error: declaration expected
+
+    main.adb:11:41: error: missing ";"
+
+    main.adb:12:03: error: missing "end loop;" for "loop" at line 10
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:23:42.067000'
+'2022-03-29T12:23:54.819000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:5:04: error: declaration expected
+
+    main.adb:11:03: error: missing "end loop;" for "loop" at line 9
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:23:54.819000'
+'2022-03-29T12:24:05.400000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:5:04: error: declaration expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:24:05.400000'
+'2022-03-29T12:24:26.571000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:5:04: error: declaration expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:24:26.571000'
+'2022-03-29T12:24:50.230000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:5:04: error: declaration expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:24:50.230000'
+'2022-03-29T12:24:58.773000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    main.adb:9:11: error: missing Range attribute in iteration over an array
+
+    main.adb:9:11: error: if "i" is meant to designate an element of the array, use
+    "of"
+
+    main.adb:10:29: error: expected type "Standard.Boolean"
+
+    main.adb:10:29: error: found type "Light" defined at dashboard_warning_lights.ads:9
+
+    dashboard_warning_lights.ads:13:09: error: "Lights" conflicts with declaration
+    at line 5
+
+    dashboard_warning_lights.ads:13:26: error: type "Lights" cannot be used before
+    end of its declaration
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:24:58.773000'
+'2022-03-29T12:25:06.159000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:13:09: error: "Lights" conflicts with declaration
+    at line 5
+
+    dashboard_warning_lights.ads:13:26: error: type "Lights" cannot be used before
+    end of its declaration
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:25:06.159000'
+'2022-03-29T12:25:36.173000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:16:38: error: identifier expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:25:36.173000'
+'2022-03-29T12:25:46.294000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "LightsOff" declared
+    at dashboard_warning_lights.ads:16
+
+    dashboard_warning_lights.ads:17:27: error: prefix of "range" attribute must be
+    a type
+
+    dashboard_warning_lights.ads:17:41: error: array type required in indexed component
+
+    dashboard_warning_lights.ads:18:28: error: prefix of "range" attribute must be
+    a type
+
+    dashboard_warning_lights.ads:18:42: error: array type required in indexed component
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:25:46.294000'
+'2022-03-29T12:25:53.055000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:25:53.055000'
+'2022-03-29T12:26:43.474000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    main.adb:4:11: info: SPARK_Mode not applied to this compilation unit
+
+    main.adb:4:11: info: only enclosed declarations with SPARK_Mode will be analyzed
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:26:43.474000'
+'2022-03-29T12:49:02.716000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:21:07: error: expression function must be enclosed
+    in parentheses
+
+    dashboard_warning_lights.ads:23:30: error: missing ";"
+
+    dashboard_warning_lights.ads:25:01: error: missing "return"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:49:02.716000'
+'2022-03-29T12:49:15.933000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:23:30: error: missing ";"
+
+    dashboard_warning_lights.ads:25:01: error: missing "return"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T12:49:15.933000'
+'2022-03-29T13:28:54.545000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:36: error: missing ";"
+
+    dashboard_warning_lights.adb:17:01: error: "end CheckCharging;" expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:28:54.545000'
+'2022-03-29T13:28:59.314000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:17:01: error: "end CheckCharging;" expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:28:59.314000'
+'2022-03-29T13:29:07.611000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:36:04: error: "procedure" should be "function"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:29:07.611000'
+'2022-03-29T13:29:19.836000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckGeneralFault"
+    declared at dashboard_warning_lights.ads:22
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckElectricalFault"
+    declared at dashboard_warning_lights.ads:24
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckMasterWarning"
+    declared at dashboard_warning_lights.ads:26
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckBatteryTemperature"
+    declared at dashboard_warning_lights.ads:28
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckBatteryCharge"
+    declared at dashboard_warning_lights.ads:30
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLimitedPower"
+    declared at dashboard_warning_lights.ads:32
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLowBattery" declared
+    at dashboard_warning_lights.ads:34
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckReadyToDrive"
+    declared at dashboard_warning_lights.ads:36
+
+    dashboard_warning_lights.adb:15:30: error: invalid prefix in selected component
+    "state"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:29:19.836000'
+'2022-03-29T13:29:57.219000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckCharging" declared
+    at dashboard_warning_lights.ads:20
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckGeneralFault"
+    declared at dashboard_warning_lights.ads:22
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckElectricalFault"
+    declared at dashboard_warning_lights.ads:24
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckMasterWarning"
+    declared at dashboard_warning_lights.ads:26
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckBatteryTemperature"
+    declared at dashboard_warning_lights.ads:28
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckBatteryCharge"
+    declared at dashboard_warning_lights.ads:30
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLimitedPower"
+    declared at dashboard_warning_lights.ads:32
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLowBattery" declared
+    at dashboard_warning_lights.ads:34
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckReadyToDrive"
+    declared at dashboard_warning_lights.ads:36
+
+    dashboard_warning_lights.adb:15:30: error: invalid prefix in selected component
+    "state"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:29:57.219000'
+'2022-03-29T13:30:15.382000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckGeneralFault"
+    declared at dashboard_warning_lights.ads:22
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckElectricalFault"
+    declared at dashboard_warning_lights.ads:24
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckMasterWarning"
+    declared at dashboard_warning_lights.ads:26
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckBatteryTemperature"
+    declared at dashboard_warning_lights.ads:28
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckBatteryCharge"
+    declared at dashboard_warning_lights.ads:30
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLimitedPower"
+    declared at dashboard_warning_lights.ads:32
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLowBattery" declared
+    at dashboard_warning_lights.ads:34
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckReadyToDrive"
+    declared at dashboard_warning_lights.ads:36
+
+    dashboard_warning_lights.adb:15:30: error: invalid prefix in selected component
+    "state"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:30:15.382000'
+'2022-03-29T13:30:24.281000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckGeneralFault"
+    declared at dashboard_warning_lights.ads:22
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckElectricalFault"
+    declared at dashboard_warning_lights.ads:24
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckMasterWarning"
+    declared at dashboard_warning_lights.ads:26
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckBatteryTemperature"
+    declared at dashboard_warning_lights.ads:28
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckBatteryCharge"
+    declared at dashboard_warning_lights.ads:30
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLimitedPower"
+    declared at dashboard_warning_lights.ads:32
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLowBattery" declared
+    at dashboard_warning_lights.ads:34
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckReadyToDrive"
+    declared at dashboard_warning_lights.ads:36
+
+    dashboard_warning_lights.adb:15:30: error: invalid prefix in selected component
+    "state"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:30:24.281000'
+'2022-03-29T13:31:26.081000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:13:37: error: "," should be ";"
+
+    dashboard_warning_lights.adb:16:04: error: "end CheckLight;" expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:31:26.081000'
+'2022-03-29T13:31:31.855000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:16:04: error: "end CheckLight;" expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:31:31.855000'
+'2022-03-29T13:31:37.714000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:23: error: invalid prefix in selected component
+    "state"
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:31:37.714000'
+'2022-03-29T13:31:57.509000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:23: error: invalid prefix in selected component
+    "state"
+
+    dashboard_warning_lights.adb:15:29: error: missing ";"
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:31:57.509000'
+'2022-03-29T13:33:26.725000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:13: error: subtype mark required in this context
+
+    dashboard_warning_lights.adb:14:13: error: found "y" declared at dashboard_warning_lights.ads:20
+
+    dashboard_warning_lights.adb:14:18: error: "state" is undefined
+
+    dashboard_warning_lights.adb:14:23: error: missing ";"
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:33:26.725000'
+'2022-03-29T13:33:38.113000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:26: error: incorrect constraint for this kind
+    of type
+
+    dashboard_warning_lights.adb:14:33: error: "state" is undefined
+
+    dashboard_warning_lights.adb:14:38: error: missing ";"
+
+    dashboard_warning_lights.adb:16:14: error: expected type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:14: error: found type "TypesOfLights" defined
+    at dashboard_warning_lights.ads:5
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:33:38.113000'
+'2022-03-29T13:34:06.528000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:13: error: array type is already constrained
+
+    dashboard_warning_lights.adb:14:26: error: "state" is undefined
+
+    dashboard_warning_lights.adb:14:31: error: missing ";"
+
+    dashboard_warning_lights.adb:16:14: error: expected type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:14: error: found type "Lights" defined at dashboard_warning_lights.ads:13
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:34:06.528000'
+'2022-03-29T13:34:27.993000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:13: error: array type is already constrained
+
+    dashboard_warning_lights.adb:14:22: error: "." should be ";"
+
+    dashboard_warning_lights.adb:16:14: error: expected type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:14: error: found type "Lights" defined at dashboard_warning_lights.ads:13
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:34:27.993000'
+'2022-03-29T13:34:51.197000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:16: error: array type is already constrained
+
+    dashboard_warning_lights.adb:14:25: error: "." should be ";"
+
+    dashboard_warning_lights.adb:16:14: error: expected type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:14: error: found type "Lights" defined at dashboard_warning_lights.ads:13
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:34:51.197000'
+'2022-03-29T13:35:39.469000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:35: error: invalid prefix in selected component
+    "state"
+
+    dashboard_warning_lights.adb:14:41: error: missing ";"
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:35:39.469000'
+'2022-03-29T13:35:56.965000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: ''
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:35:56.965000'
+'2022-03-29T13:36:03.645000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:26: error: invalid prefix in selected component
+    "y"
+
+    dashboard_warning_lights.adb:14:33: error: missing ";"
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:36:03.645000'
+'2022-03-29T13:36:40.572000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:1:14: error: missing body for "CheckLight" declared
+    at dashboard_warning_lights.ads:20
+
+    dashboard_warning_lights.adb:13:59: error: "," should be ";"
+
+    dashboard_warning_lights.adb:14:39: error: missing ";"
+
+    dashboard_warning_lights.ads:20:37: error: "," should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:36:40.572000'
+'2022-03-29T13:36:58.659000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:39: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:36:58.659000'
+'2022-03-29T13:37:08.388000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:41: error: declaration expected
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:37:08.388000'
+'2022-03-29T13:37:21.365000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:16: error: subtype mark required in this context
+
+    dashboard_warning_lights.adb:14:16: error: found "This" declared at dashboard_warning_lights.ads:20
+
+    dashboard_warning_lights.adb:14:20: error: incorrect constraint for this kind
+    of type
+
+    dashboard_warning_lights.adb:14:23: error: "." should be ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:37:21.365000'
+'2022-03-29T13:37:40.205000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:14:26: error: expected type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:14:26: error: found a composite type
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:37:40.205000'
+'2022-03-29T13:43:47.113000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:42: error: missing string quote
+
+    dashboard_warning_lights.adb:17:03: error: missing "end if;" for "if" at line
+    15
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:43:47.113000'
+'2022-03-29T13:43:59.143000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:17:03: error: missing "end if;" for "if" at line
+    15
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:43:59.143000'
+'2022-03-29T13:44:07.496000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:12: error: invalid operand types for operator
+    "="
+
+    dashboard_warning_lights.adb:15:12: error: left operand has type "Switch" defined
+    at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:15:12: error: right operand has a string type
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:44:07.496000'
+'2022-03-29T13:44:14.685000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:12: error: == should be =
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:44:14.685000'
+'2022-03-29T13:44:39.856000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:12: error: invalid operand types for operator
+    "="
+
+    dashboard_warning_lights.adb:15:12: error: left operand has type "Switch" defined
+    at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:15:12: error: right operand has a string type
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:44:39.856000'
+'2022-03-29T13:44:58.945000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:20: error: expected type "Standard.Boolean"
+
+    dashboard_warning_lights.adb:15:20: error: found type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:44:58.945000'
+'2022-03-29T13:45:24.761000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:27: error: expected type "Standard.Boolean"
+
+    dashboard_warning_lights.adb:15:27: error: found type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:45:24.761000'
+'2022-03-29T13:45:33.026000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:27: error: expected type "Standard.Boolean"
+
+    dashboard_warning_lights.adb:15:27: error: found type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:45:33.026000'
+'2022-03-29T13:45:54.024000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:27: error: expected type "Standard.Boolean"
+
+    dashboard_warning_lights.adb:15:27: error: found type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:45:54.024000'
+'2022-03-29T13:46:02.372000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:27: error: expected type "Standard.Boolean"
+
+    dashboard_warning_lights.adb:15:27: error: found type "Switch" defined at dashboard_warning_lights.ads:4
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:46:02.372000'
+'2022-03-29T13:47:17.240000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:15:14: error: invalid conversion, not compatible
+    with type universal integer
+
+    dashboard_warning_lights.adb:15:31: error: invalid conversion, not compatible
+    with type universal integer
+
+    dashboard_warning_lights.adb:15:48: error: invalid conversion, not compatible
+    with type universal integer
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:47:17.240000'
+'2022-03-29T13:47:32.037000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:47:32.037000'
+'2022-03-29T13:47:43.098000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:16:10: error: invalid prefix in selected component
+    "y"
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:47:43.098000'
+'2022-03-29T13:47:54.384000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:16:10: error: invalid prefix in selected component
+    "This"
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:47:54.384000'
+'2022-03-29T13:48:00.718000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.adb:16:24: error: "=" should be ":="
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:48:00.718000'
+'2022-03-29T13:48:18.971000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:13:14: error: not fully conformant with declaration
+    at dashboard_warning_lights.ads:20
+
+    dashboard_warning_lights.adb:13:14: error: mode of "y" does not match
+
+    dashboard_warning_lights.ads:20:79: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:48:18.971000'
+'2022-03-29T13:48:25.793000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not
+    allowed
+
+    dashboard_warning_lights.ads:20:83: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:48:25.793000'
+'2022-03-29T13:48:38.146000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    dashboard_warning_lights.ads:20:83: error: missing ";"
+
+    gnatprove: error during generation of Global contracts
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:48:38.146000'
+'2022-03-29T13:49:27.219000':
+  category: GNATprove
+  files:
+  - I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal
+    Approaches to Software Engineering\Coursework\Program\obj\gnatprove
+  label: Basic Prove File
+  output: 'Phase 1 of 2: generation of Global contracts ...
+
+    Phase 2 of 2: flow analysis and proof ...
+
+    Summary logged in I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th
+    Year\Formal Approaches to Software Engineering\Coursework\Program\obj\gnatprove\gnatprove.out
+
+    '
+  output_parser: GNATprove_Parser
+  timestamp: '2022-03-29T13:49:27.219000'

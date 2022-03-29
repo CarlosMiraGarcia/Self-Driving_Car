@@ -1,0 +1,2 @@
+dashboard_warning_lights.ads:23:30: error: missing ";"
+dashboard_warning_lights.ads:25:01: error: missing "return"

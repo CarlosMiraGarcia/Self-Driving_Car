@@ -1,0 +1,20 @@
+[GENERATED OBJECT FILE]
+b__main.o
+[PROJECT FILES]
+I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal Approaches to Software Engineering\Coursework\Program\selfdriving_car.gpr
+20220329094400 76627654712825d5c4a0881badc756ff
+[BOUND OBJECT FILES]
+I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal Approaches to Software Engineering\Coursework\Program\obj\dashboard_warning_lights.o
+I:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal Approaches to Software Engineering\Coursework\Program\obj\main.o
+[GENERATED SOURCE FILES]
+b__main.ads
+b__main.adb
+b__main.ali
+[RESULTING OPTIONS]
+-LI:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal Approaches to Software Engineering\Coursework\Program\obj\
+-LI:\Carlos - Desktop\OneDrive - Edinburgh Napier University\University\4th Year\Formal Approaches to Software Engineering\Coursework\Program\obj\
+-LC:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/
+-static
+-static-libgcc
+C:/gnat/2021/lib/gcc/x86_64-w64-mingw32/10.3.1/adalib/libgnat.a
+-Wl,--stack=0x2000000

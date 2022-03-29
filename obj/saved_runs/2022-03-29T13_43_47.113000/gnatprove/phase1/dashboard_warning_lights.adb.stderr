@@ -1,0 +1,2 @@
+dashboard_warning_lights.adb:15:42: error: missing string quote
+dashboard_warning_lights.adb:17:03: error: missing "end if;" for "if" at line 15

@@ -1,0 +1,5 @@
+dashboard_warning_lights.adb:15:14: error: invalid conversion, not compatible with type universal integer
+dashboard_warning_lights.adb:15:31: error: invalid conversion, not compatible with type universal integer
+dashboard_warning_lights.adb:15:48: error: invalid conversion, not compatible with type universal integer
+dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not allowed
+dashboard_warning_lights.ads:20:79: error: missing ";"

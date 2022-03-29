@@ -1,0 +1,54 @@
+V "GNAT Lib v2021"
+A -x
+A ada
+A -gnatA
+A -gnatc
+P GP FX
+
+RN
+RV NO_IMPLEMENTATION_PRAGMAS
+RV NO_ELABORATION_CODE
+
+U dashboard_warning_lights%b  dashboard_warning_lights.adb  cc5be17a OO PK IL
+
+U dashboard_warning_lights%s  dashboard_warning_lights.ads  6559f571 OO PK IL
+
+D dashboard_warning_lights.ads  20220329105150 6559f571 dashboard_warning_lights%s
+D dashboard_warning_lights.adb  20220329105130 a902140b dashboard_warning_lights%b
+D system.ads		20210520051134 2ffa5114 system%s
+G a Z
+X 1 dashboard_warning_lights.ads
+1K9*dashboard_warning_lights 16l5 16e29 2|1b14 13l5 13t29
+4E9*Switch 4e35 9r43
+4n20*On{4E9} 14r52 2|7r24
+4n24*Off{4E9} 13r51 2|6r23
+4n29*Error{4E9}
+5E9*Lights 7e77 9r32
+5n20*ReadyToDrive{5E9}
+5n34*EcoMode{5E9}
+5n43*Charging{5E9}
+5n53*GeneralFault{5E9}
+5n67*ElectricalFault{5E9}
+6n20*SeriousElectricalFault{5E9}
+6n44*MasterWarning{5E9}
+6n59*BatteryTemperature{5E9}
+7n20*BatteryCharge{5E9}
+7n35*LimitedPower{5E9}
+7n49*LowBattery{5E9}
+7n61*PedestrianAlert{5E9}
+9A9*LightsStatus(4E9)<5E9> 12r41 2|3r41
+12U14*CheckLights 12=27 2|3b14 10l8 10t19
+12a27 This{9A9} 13r27 13r41 14r28 14r42 2|3b27 5r16 6r13 7m13
+13e22 i{5E9} 13r46
+14e23 i{5E9} 14r47
+X 2 dashboard_warning_lights.adb
+5e11 i{1|5E9} 6r18 7r18
+
+QQ SPARKVERSION SPARK Community 2021 (20210519)
+GG EK_DIRECT_CALLS dashboard_warning_lights__checklights 0
+GG EK_GLOBALS dashboard_warning_lights__checklights local FALSE E_PROCEDURE FALSE ORIGIN_FLOW 1 dashboard_warning_lights proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 calls_proof 0 calls 0 calls_conditional 0 FALSE FALSE FALSE TRUE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_DIRECT_CALLS dashboard_warning_lights 0
+GG EK_GLOBALS dashboard_warning_lights local FALSE E_PACKAGE TRUE ORIGIN_FLOW 0 proper_proof_in 0 proper_input 0 proper_output 0 refined_proof_in 0 refined_input 0 refined_output 0 initializes 0 refined_initializes 0 calls_proof 0 calls 0 calls_conditional 0 local_var 0 FALSE FALSE FALSE FALSE ENTRY_CALLS 0 SUSPENDS_ON 0 UNSYNCH_ACCESSES 0 LOCKS 0
+GG EK_FLOW_SCOPE dashboard_warning_lights TRUE FALSE FALSE FALSE FALSE __standard
+GG EK_FLOW_SCOPE dashboard_warning_lights__checklights FALSE FALSE FALSE FALSE TRUE dashboard_warning_lights VISIBLE_PART
+GG EK_END_MARKER

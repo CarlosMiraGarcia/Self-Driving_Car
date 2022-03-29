@@ -1,0 +1,2 @@
+dashboard_warning_lights.adb:13:37: error: "," should be ";"
+dashboard_warning_lights.adb:16:04: error: "end CheckLight;" expected

@@ -1,0 +1,3 @@
+dashboard_warning_lights.adb:13:14: error: not fully conformant with declaration at dashboard_warning_lights.ads:20
+dashboard_warning_lights.adb:13:14: error: mode of "y" does not match
+dashboard_warning_lights.ads:20:79: error: missing ";"

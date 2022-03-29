@@ -1,0 +1,2 @@
+dashboard_warning_lights.ads:21:07: error: expected type "Switch" defined at line 4
+dashboard_warning_lights.ads:21:07: error: found type "Standard.Boolean"

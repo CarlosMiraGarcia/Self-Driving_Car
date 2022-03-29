@@ -1,0 +1,2 @@
+dashboard_warning_lights.adb:16:10: error: invalid prefix in selected component "This"
+dashboard_warning_lights.ads:20:79: error: missing ";"

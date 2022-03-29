@@ -1,0 +1,1231 @@
+module Dashboard_warning_lights__switch
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type switch
+  
+  val function first : int
+    ensures { result = (0 : int) }
+  
+  val function last : int
+    ensures { result = (2 : int) }
+  
+  predicate in_range (x: int) = ((first <= x) /\ (x <= last))
+  
+  val in_range (x: int) : bool
+    ensures { result <-> (in_range (x : int)) }
+  
+  clone export ada__model.Static_Discrete with
+    axiom .,
+    type t = switch,
+    function first = first,
+    function last = last,
+    predicate in_range = in_range
+  
+  type switch__ref = { mutable switch__content : switch }
+  
+  function switch__ref_switch__content__projection (a: switch__ref) : switch =
+    a.switch__content
+  
+  meta "model_projection" function switch__ref_switch__content__projection
+  
+  meta "inline:no" function switch__ref_switch__content__projection
+  
+  val switch__havoc (x: switch__ref) : unit
+    writes { x }
+end
+
+module Dashboard_warning_lights__switch__rep
+  use Dashboard_warning_lights__switch as Dashboard_warning_lights__switch
+  use _gnatprove_standard.Main
+  use int.Int
+  clone export ada__model.Rep_Proj_Int with
+    axiom .,
+    type t = Dashboard_warning_lights__switch.switch,
+    predicate in_range = Dashboard_warning_lights__switch.in_range
+  
+  meta "model_projection" function to_rep
+  
+  meta "inline:no" function to_rep
+end
+
+module Dashboard_warning_lights__light__rep
+  use _gnatprove_standard.Main
+  use int.Int
+  use _gnatprove_standard.Main as Main
+  use Dashboard_warning_lights__switch as Dashboard_warning_lights__switch
+  use Dashboard_warning_lights__switch__rep as Dashboard_warning_lights__switch__rep
+  
+  type __split_fields = {
+                       rec__dashboard_warning_lights__light__state :
+                         Dashboard_warning_lights__switch.switch;
+                       rec__ext__ : Main.__private
+                       }
+  
+  function __split_fields_rec__dashboard_warning_lights__light__state__projection (a: __split_fields) : 
+    Dashboard_warning_lights__switch.switch =
+    a.rec__dashboard_warning_lights__light__state
+  
+  meta "model_projection" function __split_fields_rec__dashboard_warning_lights__light__state__projection
+  
+  meta "inline:no" function __split_fields_rec__dashboard_warning_lights__light__state__projection
+  
+  function __split_fields_rec__ext____projection (a: __split_fields) : 
+    Main.__private =
+    a.rec__ext__
+  
+  meta "model_projection" function __split_fields_rec__ext____projection
+  
+  meta "inline:no" function __split_fields_rec__ext____projection
+  
+  type __split_fields__ref = {
+                            mutable __split_fields__content : __split_fields
+                            }
+  
+  function __split_fields__ref___split_fields__content__projection (a: __split_fields__ref) : __split_fields =
+    __split_fields__content a
+  
+  meta "model_projection" function __split_fields__ref___split_fields__content__projection
+  
+  meta "inline:no" function __split_fields__ref___split_fields__content__projection
+  
+  val __split_fields__havoc (x: __split_fields__ref) : unit
+    writes { x }
+  
+  type __rep = { __split_fields : __split_fields; attr__tag : int }
+  
+  function __rep___split_fields__projection (a: __rep) : __split_fields =
+    __split_fields a
+  
+  meta "model_projection" function __rep___split_fields__projection
+  
+  meta "inline:no" function __rep___split_fields__projection
+  
+  function __rep_attr__tag__projection (a: __rep) : int = a.attr__tag
+  
+  meta "model_projection" function __rep_attr__tag__projection
+  
+  meta "inline:no" function __rep_attr__tag__projection
+  
+  function to_base (a: __rep) : __rep = a
+  
+  val to_base (a: __rep) : __rep
+    ensures { result = (to_base (a : __rep)) }
+  
+  function of_base (a: __rep) : __rep = a
+  
+  val of_base (a: __rep) : __rep
+    ensures { result = (of_base (a : __rep)) }
+  
+  predicate dashboard_warning_lights__light__state__pred (a: __rep) = true
+  
+  val dashboard_warning_lights__light__state__pred (a: __rep) : bool
+    ensures { result
+                <->
+                (dashboard_warning_lights__light__state__pred (a : __rep)) }
+  
+  val rec__dashboard_warning_lights__light__state_ (a: __rep) : Dashboard_warning_lights__switch.switch
+    requires { dashboard_warning_lights__light__state__pred a }
+    ensures { (result
+                 = ((__split_fields a).rec__dashboard_warning_lights__light__state)) }
+  
+  function bool_eq (a: __rep) (b: __rep) : bool =
+    if ((Dashboard_warning_lights__switch__rep.to_rep
+           ((__split_fields a).rec__dashboard_warning_lights__light__state))
+          = (Dashboard_warning_lights__switch__rep.to_rep
+               ((__split_fields b).rec__dashboard_warning_lights__light__state))) then
+      True
+    else False
+  
+  val bool_eq (a: __rep) (b: __rep) : bool
+    ensures { result = ((bool_eq (a : __rep)) (b : __rep)) }
+  
+  val function __dispatch_eq (a: __rep) (b: __rep) : bool
+end
+
+module Dashboard_warning_lights__light
+  use export Dashboard_warning_lights__light__rep
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type light = __rep
+  
+  val function __tag : int
+  
+  val function value__size : int
+  
+  val function object__size : int
+  
+  val function alignment : int
+  
+  axiom value__size_axiom: (value__size >= (0 : int))
+  
+  axiom object__size_axiom: (object__size >= (0 : int))
+  
+  axiom alignment_axiom: (alignment >= (0 : int))
+  
+  val function dashboard_warning_lights__light__state__first__bit : int
+  
+  val function dashboard_warning_lights__light__state__last__bit : int
+  
+  val function dashboard_warning_lights__light__state__position : int
+  
+  axiom dashboard_warning_lights__light__state__first__bit_axiom:
+    (dashboard_warning_lights__light__state__first__bit >= (0 : int))
+  
+  axiom dashboard_warning_lights__light__state__last__bit_axiom:
+    (dashboard_warning_lights__light__state__last__bit
+       > dashboard_warning_lights__light__state__first__bit)
+  
+  axiom dashboard_warning_lights__light__state__position_axiom:
+    (dashboard_warning_lights__light__state__position >= (0 : int))
+  
+  val function user_eq (a: light) (b: light) : bool
+  
+  val function dummy : light
+  
+  type light__ref = { mutable light__content : light }
+  
+  function light__ref_light__content__projection (a: light__ref) : light =
+    a.light__content
+  
+  meta "model_projection" function light__ref_light__content__projection
+  
+  meta "inline:no" function light__ref_light__content__projection
+  
+  val light__havoc (x: light__ref) : unit
+    writes { x }
+end
+
+module Array__Int__Dashboard_warning_lights__light
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Dashboard_warning_lights__light as Dashboard_warning_lights__light
+  
+  function index_I1_one : int = 1 : int
+  
+  type component_type = Dashboard_warning_lights__light.light
+  
+  clone export _gnatprove_standard.Array__1 with
+    axiom .,
+    type I1.t = int,
+    predicate I1.le = Int.( <= ),
+    predicate I1.lt = Int.( < ),
+    predicate I1.gt = Int.( > ),
+    function I1.add = Int.( + ),
+    function I1.sub = Int.( - ),
+    function I1.one = index_I1_one,
+    type component_type = component_type
+  
+  function bool_eq (a: map) (a__first: int) (a__last: int) (b: map) (b__first: int) (b__last: int) : bool =
+    ((if (a__first <= a__last) then
+        ((b__first <= b__last) /\
+           ((a__last - a__first) = (b__last - b__first)))
+      else (b__first > b__last)) /\
+       (forall temp___idx_161 : int.
+          if ((a__first <= temp___idx_161) /\ (temp___idx_161 <= a__last)) then
+            ((Dashboard_warning_lights__light.bool_eq
+                ((get a) temp___idx_161))
+               ((get b) ((b__first - a__first) + temp___idx_161)))
+          else true))
+  
+  val bool_eq (a: map) (a__first: int) (a__last: int) (b: map) (b__first: int) (b__last: int) : 
+    bool
+    ensures { result
+      =
+      ((((((bool_eq (a : map)) (a__first : int)) (a__last : int)) (b : map))
+          (b__first : int))
+         (b__last : int)) }
+  
+  axiom bool_eq_rev:
+    forall a : map, b : map.
+      forall a__first : int, a__last : int, b__first : int, b__last : int.
+        ((((((((bool_eq b) b__first) b__last) a) a__first) a__last) = True) ->
+           ((if (a__first <= a__last) then
+               ((b__first <= b__last) /\
+                  ((a__last - a__first) = (b__last - b__first)))
+             else (b__first > b__last)) /\
+              (forall temp___idx_161 : int.
+                 if ((a__first <= temp___idx_161) /\
+                       (temp___idx_161 <= a__last)) then
+                   ((Dashboard_warning_lights__light.bool_eq
+                       ((get a) temp___idx_161))
+                      ((get b) ((b__first - a__first) + temp___idx_161)))
+                 else true)))
+end
+
+module Dashboard_warning_lights__checklights__this
+  use _gnatprove_standard.Main
+  use int.Int
+  use Array__Int__Dashboard_warning_lights__light as Array__Int__Dashboard_warning_lights__light
+  
+  val this : Array__Int__Dashboard_warning_lights__light.map__ref
+end
+
+module Dashboard_warning_lights__checklights__L_1__i
+  use _gnatprove_standard.Main
+  use int.Int
+  
+  val i : int__ref
+end
+
+module Dashboard_warning_lights__lights
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  
+  type lights
+  
+  val function first : int
+    ensures { result = (0 : int) }
+  
+  val function last : int
+    ensures { result = (11 : int) }
+  
+  predicate in_range (x: int) = ((first <= x) /\ (x <= last))
+  
+  val in_range (x: int) : bool
+    ensures { result <-> (in_range (x : int)) }
+  
+  clone export ada__model.Static_Discrete with
+    axiom .,
+    type t = lights,
+    function first = first,
+    function last = last,
+    predicate in_range = in_range
+  
+  type lights__ref = { mutable lights__content : lights }
+  
+  function lights__ref_lights__content__projection (a: lights__ref) : lights =
+    a.lights__content
+  
+  meta "model_projection" function lights__ref_lights__content__projection
+  
+  meta "inline:no" function lights__ref_lights__content__projection
+  
+  val lights__havoc (x: lights__ref) : unit
+    writes { x }
+end
+
+module Dashboard_warning_lights__lightsstatus___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Dashboard_warning_lights__lights as Dashboard_warning_lights__lights
+  use Dashboard_warning_lights__light as Dashboard_warning_lights__light
+  use Array__Int__Dashboard_warning_lights__light as Array__Int__Dashboard_warning_lights__light
+  use Array__Int__Dashboard_warning_lights__light as Array__Int__Dashboard_warning_lights__light
+  use Array__Int__Dashboard_warning_lights__light as Array__Int__Dashboard_warning_lights__light
+  
+  predicate dynamic_invariant (temp___expr_188: Array__Int__Dashboard_warning_lights__light.map) (temp___is_init_184: bool) (temp___skip_constant_185: bool) (temp___do_toplevel_186: bool) (temp___do_typ_inv_187: bool) =
+    true
+  
+  val dynamic_invariant (temp___expr_188: Array__Int__Dashboard_warning_lights__light.map) (temp___is_init_184: bool) (temp___skip_constant_185: bool) (temp___do_toplevel_186: bool) (temp___do_typ_inv_187: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant
+                       (temp___expr_188 :
+                          Array__Int__Dashboard_warning_lights__light.map))
+                      (temp___is_init_184 : bool))
+                     (temp___skip_constant_185 : bool))
+                    (temp___do_toplevel_186 : bool))
+                   (temp___do_typ_inv_187 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_190: Array__Int__Dashboard_warning_lights__light.map) (temp___skip_top_level_191: bool) =
+    forall temp___192 : int.
+      if ((Dashboard_warning_lights__lights.first <= temp___192) /\
+            (temp___192 <= Dashboard_warning_lights__lights.last)) then
+        (let temp___193 =
+           (Array__Int__Dashboard_warning_lights__light.get temp___expr_190)
+             temp___192 in
+         ((Dashboard_warning_lights__light.attr__tag temp___193)
+            = Dashboard_warning_lights__light.__tag))
+      else true
+  
+  val default_initial_assumption (temp___expr_190: Array__Int__Dashboard_warning_lights__light.map) (temp___skip_top_level_191: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption
+                    (temp___expr_190 :
+                       Array__Int__Dashboard_warning_lights__light.map))
+                   (temp___skip_top_level_191 : bool)) }
+end
+
+module Dashboard_warning_lights__checklights__L_1
+  use _gnatprove_standard.Main
+  use int.Int
+  
+  exception L_1
+end
+
+module Dashboard_warning_lights__checklights__L_1__i___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module Dashboard_warning_lights__checklights__L_1___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module Dashboard_warning_lights__switch___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Dashboard_warning_lights__switch as Dashboard_warning_lights__switch
+  
+  predicate dynamic_invariant (temp___expr_166: int) (temp___is_init_162: bool) (temp___skip_constant_163: bool) (temp___do_toplevel_164: bool) (temp___do_typ_inv_165: bool) =
+    if ((temp___is_init_162 = True) \/
+          (Dashboard_warning_lights__switch.first
+             <= Dashboard_warning_lights__switch.last)) then
+      (((Dashboard_warning_lights__switch.dynamic_property
+           Dashboard_warning_lights__switch.first)
+          Dashboard_warning_lights__switch.last)
+         temp___expr_166)
+    else true
+  
+  val dynamic_invariant (temp___expr_166: int) (temp___is_init_162: bool) (temp___skip_constant_163: bool) (temp___do_toplevel_164: bool) (temp___do_typ_inv_165: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant (temp___expr_166 : int))
+                      (temp___is_init_162 : bool))
+                     (temp___skip_constant_163 : bool))
+                    (temp___do_toplevel_164 : bool))
+                   (temp___do_typ_inv_165 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_167: int) (temp___skip_top_level_168: bool) =
+    true
+  
+  val default_initial_assumption (temp___expr_167: int) (temp___skip_top_level_168: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption (temp___expr_167 : int))
+                   (temp___skip_top_level_168 : bool)) }
+end
+
+module Dashboard_warning_lights__lights___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use Dashboard_warning_lights__lights as Dashboard_warning_lights__lights
+  
+  predicate dynamic_invariant (temp___expr_173: int) (temp___is_init_169: bool) (temp___skip_constant_170: bool) (temp___do_toplevel_171: bool) (temp___do_typ_inv_172: bool) =
+    if ((temp___is_init_169 = True) \/
+          (Dashboard_warning_lights__lights.first
+             <= Dashboard_warning_lights__lights.last)) then
+      (((Dashboard_warning_lights__lights.dynamic_property
+           Dashboard_warning_lights__lights.first)
+          Dashboard_warning_lights__lights.last)
+         temp___expr_173)
+    else true
+  
+  val dynamic_invariant (temp___expr_173: int) (temp___is_init_169: bool) (temp___skip_constant_170: bool) (temp___do_toplevel_171: bool) (temp___do_typ_inv_172: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant (temp___expr_173 : int))
+                      (temp___is_init_169 : bool))
+                     (temp___skip_constant_170 : bool))
+                    (temp___do_toplevel_171 : bool))
+                   (temp___do_typ_inv_172 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_174: int) (temp___skip_top_level_175: bool) =
+    true
+  
+  val default_initial_assumption (temp___expr_174: int) (temp___skip_top_level_175: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption (temp___expr_174 : int))
+                   (temp___skip_top_level_175 : bool)) }
+end
+
+module Dashboard_warning_lights__light___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+  use Dashboard_warning_lights__light as Dashboard_warning_lights__light
+  
+  predicate dynamic_invariant (temp___expr_180: Dashboard_warning_lights__light.light) (temp___is_init_176: bool) (temp___skip_constant_177: bool) (temp___do_toplevel_178: bool) (temp___do_typ_inv_179: bool) =
+    true
+  
+  val dynamic_invariant (temp___expr_180: Dashboard_warning_lights__light.light) (temp___is_init_176: bool) (temp___skip_constant_177: bool) (temp___do_toplevel_178: bool) (temp___do_typ_inv_179: bool) : 
+    bool
+    ensures { result
+                <->
+                (((((dynamic_invariant
+                       (temp___expr_180 :
+                          Dashboard_warning_lights__light.light))
+                      (temp___is_init_176 : bool))
+                     (temp___skip_constant_177 : bool))
+                    (temp___do_toplevel_178 : bool))
+                   (temp___do_typ_inv_179 : bool)) }
+  
+  predicate default_initial_assumption (temp___expr_181: Dashboard_warning_lights__light.light) (temp___skip_top_level_182: bool) =
+    ((Dashboard_warning_lights__light.attr__tag temp___expr_181)
+       = Dashboard_warning_lights__light.__tag)
+  
+  val default_initial_assumption (temp___expr_181: Dashboard_warning_lights__light.light) (temp___skip_top_level_182: bool) : 
+    bool
+    ensures { result
+                <->
+                ((default_initial_assumption
+                    (temp___expr_181 : Dashboard_warning_lights__light.light))
+                   (temp___skip_top_level_182 : bool)) }
+end
+
+module Dashboard_warning_lights__checklights__this___axiom
+  use _gnatprove_standard.Main
+  use int.Int
+end
+
+module Dashboard_warning_lights__checklights__subprogram_def
+  use _gnatprove_standard.Main
+  use int.Int
+  use int.Int
+  use _gnatprove_standard.Main as Main
+  use _gnatprove_standard.Boolean as Boolean
+  use Array__Int__Dashboard_warning_lights__light as Array__Int__Dashboard_warning_lights__light
+  use Dashboard_warning_lights__checklights__this as Dashboard_warning_lights__checklights__this
+  use Dashboard_warning_lights__checklights__L_1__i as Dashboard_warning_lights__checklights__L_1__i
+  use Dashboard_warning_lights__switch as Dashboard_warning_lights__switch
+  use Dashboard_warning_lights__switch__rep as Dashboard_warning_lights__switch__rep
+  use Dashboard_warning_lights__light as Dashboard_warning_lights__light
+  use Array__Int__Dashboard_warning_lights__light as Array__Int__Dashboard_warning_lights__light
+  use Dashboard_warning_lights__lightsstatus___axiom as Dashboard_warning_lights__lightsstatus___axiom
+  use Dashboard_warning_lights__checklights__L_1 as Dashboard_warning_lights__checklights__L_1
+  use Dashboard_warning_lights__checklights__L_1__i___axiom as Dashboard_warning_lights__checklights__L_1__i___axiom
+  use Dashboard_warning_lights__checklights__L_1___axiom as Dashboard_warning_lights__checklights__L_1___axiom
+  use Dashboard_warning_lights__switch___axiom as Dashboard_warning_lights__switch___axiom
+  use Dashboard_warning_lights__lights___axiom as Dashboard_warning_lights__lights___axiom
+  use Dashboard_warning_lights__light___axiom as Dashboard_warning_lights__light___axiom
+  use Dashboard_warning_lights__lightsstatus___axiom as Dashboard_warning_lights__lightsstatus___axiom
+  use Dashboard_warning_lights__checklights__this___axiom as Dashboard_warning_lights__checklights__this___axiom
+  
+  let def (__void_param : unit)
+    requires { [#"dashboard_warning_lights.ads" 16 0 0] true }
+    ensures { [#"dashboard_warning_lights.ads" 16 0 0]
+              [#"dashboard_warning_lights.ads" 18 0 0]
+              [@GP_Shape:pragargs__forall]
+              [@GP_Sloc:dashboard_warning_lights.ads:18:14]
+              [@GP_Reason:VC_POSTCONDITION]
+              [@comment:     Post => (for all i in This'Range => This(i).state = On);              ^ dashboard_warning_lights.ads:18:14:VC_POSTCONDITION]
+              [@model_vc_post]
+              [@GP_Id:0]
+              (forall i : int.
+                 ((((0 : int) <= i) /\ (i <= (11 : int))) ->
+                    ([@GP_Sloc:dashboard_warning_lights.ads:18:42]
+                     [@GP_Pretty_Ada:945]
+                     ((Dashboard_warning_lights__switch__rep.to_rep
+                         ((Dashboard_warning_lights__light.__split_fields
+                              ((Array__Int__Dashboard_warning_lights__light.get
+                                  (Dashboard_warning_lights__checklights__this.this.
+                                     Array__Int__Dashboard_warning_lights__light.map__content))
+                                 i)).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                        = (0 : int))))) }
+  = [@vc:divergent]
+    (([@GNAT-comment:Assume dynamic invariants of inputs of the subprogram dashboard_warning_lights.ads:16]
+      ());
+     assume {
+       ((((Dashboard_warning_lights__lightsstatus___axiom.dynamic_invariant
+             (Dashboard_warning_lights__checklights__this.this.Array__Int__Dashboard_warning_lights__light.map__content))
+            True)
+           False)
+          True)
+         True };
+     ([@GNAT-comment:Assume moved pointers in outputs of the subprogram dashboard_warning_lights.ads:16]
+      ());
+     ([@GNAT-comment:Check for RTE in the Pre of the subprogram dashboard_warning_lights.ads:16]
+      ());
+     (begin
+        ensures { true }
+        let _ =
+          let _ =
+            (let i = val _f : int in
+                     _f in
+             if ((Boolean.andb ((0 : int) <= i)) (i <= (11 : int))) then
+               (begin
+                  ensures { true }
+                  let _ =
+                    let _ =
+                      ((Dashboard_warning_lights__switch__rep.to_rep
+                          ((Dashboard_warning_lights__light.__split_fields
+                               ((Array__Int__Dashboard_warning_lights__light.get
+                                   (Dashboard_warning_lights__checklights__this.this.
+                                      Array__Int__Dashboard_warning_lights__light.map__content))
+                                  i)).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                         = (1 : int)) in
+                    () in
+                  ()
+                end)
+             else ());
+            (val _f : bool
+               ensures { ((result = True) <->
+                            (forall i : int.
+                               ((((0 : int) <= i) /\ (i <= (11 : int))) ->
+                                  ([@GP_Pretty_Ada:931]
+                                   ((Dashboard_warning_lights__switch__rep.to_rep
+                                       ((Dashboard_warning_lights__light.__split_fields
+                                            ((Array__Int__Dashboard_warning_lights__light.get
+                                                (Dashboard_warning_lights__checklights__this.this.
+                                                   Array__Int__Dashboard_warning_lights__light.map__content))
+                                               i)).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                                      = (1 : int)))))) } in
+             _f) in
+          () in
+        ()
+      end);
+     ([@GNAT-comment:Assume Pre of the subprogram dashboard_warning_lights.ads:16]
+      ());
+     assume {
+       forall i : int.
+         ((((0 : int) <= i) /\ (i <= (11 : int))) ->
+            ([@GP_Pretty_Ada:931]
+             ((Dashboard_warning_lights__switch__rep.to_rep
+                 ((Dashboard_warning_lights__light.__split_fields
+                      ((Array__Int__Dashboard_warning_lights__light.get
+                          (Dashboard_warning_lights__checklights__this.this.
+                             Array__Int__Dashboard_warning_lights__light.map__content))
+                         i)).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                = (1 : int)))) };
+     (try
+        ([#"dashboard_warning_lights.adb" 5 0 0] ());
+        ([@GP_Sloc:dashboard_warning_lights.adb:5:27]
+         [#"dashboard_warning_lights.adb" 5 0 0]
+         (let temp___198 = 0 : int in
+          let temp___199 = 11 : int in
+          ([@GNAT-comment:Translation of an unrolled Ada loop from dashboard_warning_lights.adb:5]
+           ());
+          ([#"dashboard_warning_lights.adb" 5 0 0]
+           (try
+              let temp___loop_entry_202 =
+                Dashboard_warning_lights__checklights__this.this.Array__Int__Dashboard_warning_lights__light.map__content in
+              ([@GNAT-comment:Unrolling of the loop statements of loop dashboard_warning_lights.adb:5]
+               ());
+              ([#"dashboard_warning_lights.adb" 5 0 0]
+               (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                  (0 : int)));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (1 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (2 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (3 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (4 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (5 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (6 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (7 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (8 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (9 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (10 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()));
+              (Dashboard_warning_lights__checklights__L_1__i.i.int__content <-
+                 (11 : int));
+              ([@GP_Sloc:dashboard_warning_lights.adb:6:10]
+               [#"dashboard_warning_lights.adb" 6 0 0]
+               (if (([#"dashboard_warning_lights.adb" 6 0 0]
+                     [#"dashboard_warning_lights.adb" 6 0 0]
+                     (([@branch_id=837] Main.spark__branch).bool__content <-
+                        ((Dashboard_warning_lights__switch__rep.to_rep
+                            ((Dashboard_warning_lights__light.__split_fields
+                                 ((Array__Int__Dashboard_warning_lights__light.get
+                                     (Dashboard_warning_lights__checklights__this.this.
+                                        Array__Int__Dashboard_warning_lights__light.map__content))
+                                    (Dashboard_warning_lights__checklights__L_1__i.i.int__content))).
+                               Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                           = (1 : int))));
+                    (([@branch_id=837] Main.spark__branch).bool__content)) then
+                  ([@GP_Sloc:dashboard_warning_lights.adb:7:27]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   [#"dashboard_warning_lights.adb" 7 0 0]
+                   (Dashboard_warning_lights__checklights__this.this.
+                      Array__Int__Dashboard_warning_lights__light.map__content <-
+                      (((Array__Int__Dashboard_warning_lights__light.set
+                           (Dashboard_warning_lights__checklights__this.this.
+                              Array__Int__Dashboard_warning_lights__light.map__content))
+                          (Dashboard_warning_lights__checklights__L_1__i.i.int__content))
+                         (let temp___201 =
+                            (Array__Int__Dashboard_warning_lights__light.get
+                               (Dashboard_warning_lights__checklights__this.this.
+                                  Array__Int__Dashboard_warning_lights__light.map__content))
+                              (Dashboard_warning_lights__checklights__L_1__i.i.int__content) in
+                          ([#"dashboard_warning_lights.adb" 7 0 0]
+                           (begin
+                              ensures { true }
+                              let _ =
+                                let _ =
+                                  (Dashboard_warning_lights__light.__split_fields
+                                      temp___201).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state in
+                                () in
+                              ()
+                            end));
+                          ({ temp___201 with
+                             Dashboard_warning_lights__light.__split_fields =
+                               ({ (Dashboard_warning_lights__light.__split_fields
+                                      temp___201) with
+                                  Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state =
+                                    (Dashboard_warning_lights__switch__rep.of_rep
+                                       (0 : int)) }) })))))
+                else ()))
+            with Dashboard_warning_lights__checklights__L_1.L_1 -> ()
+            end))));
+        (raise Return__exc)
+      with Return__exc -> ()
+      end);
+     (begin
+        ensures { true }
+        let _ =
+          let _ =
+            (let i = val _f : int in
+                     _f in
+             if ((Boolean.andb ((0 : int) <= i)) (i <= (11 : int))) then
+               (begin
+                  ensures { true }
+                  let _ =
+                    let _ =
+                      ((Dashboard_warning_lights__switch__rep.to_rep
+                          ((Dashboard_warning_lights__light.__split_fields
+                               ((Array__Int__Dashboard_warning_lights__light.get
+                                   (Dashboard_warning_lights__checklights__this.this.
+                                      Array__Int__Dashboard_warning_lights__light.map__content))
+                                  i)).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                         = (0 : int)) in
+                    () in
+                  ()
+                end)
+             else ());
+            (val _f : bool
+               ensures { ((result = True) <->
+                            (forall i : int.
+                               ((((0 : int) <= i) /\ (i <= (11 : int))) ->
+                                  ([@GP_Pretty_Ada:945]
+                                   ((Dashboard_warning_lights__switch__rep.to_rep
+                                       ((Dashboard_warning_lights__light.__split_fields
+                                            ((Array__Int__Dashboard_warning_lights__light.get
+                                                (Dashboard_warning_lights__checklights__this.this.
+                                                   Array__Int__Dashboard_warning_lights__light.map__content))
+                                               i)).Dashboard_warning_lights__light.rec__dashboard_warning_lights__light__state))
+                                      = (0 : int)))))) } in
+             _f) in
+          () in
+        ()
+      end))
+end

@@ -1,0 +1,174 @@
+{
+  "spark": [
+    {
+      "name": "dashboard_warning_lights",
+      "sloc": [
+        {
+          "file": "dashboard_warning_lights.ads",
+          "line": 1
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "dashboard_warning_lights.LightsOff",
+      "sloc": [
+        {
+          "file": "dashboard_warning_lights.ads",
+          "line": 20
+        }
+      ],
+      "spark": "all"
+    },
+    {
+      "name": "dashboard_warning_lights.CheckLights",
+      "sloc": [
+        {
+          "file": "dashboard_warning_lights.ads",
+          "line": 16
+        }
+      ],
+      "spark": "all"
+    }
+  ],
+  "flow": [
+  ],
+  "session_map": {
+    " 1": "I:\\Carlos - Desktop\\OneDrive - Edinburgh Napier University\\University\\4th Year\\Formal Approaches to Software Engineering\\Coursework\\Program\\obj\\gnatprove\\dashboard_warning_lights__checklights"
+  },
+  "proof": [
+    {
+      "file": "dashboard_warning_lights.ads",
+      "line": 18,
+      "col": 14,
+      "rule": "VC_POSTCONDITION",
+      "severity": "medium",
+      "entity": {
+        "name": "dashboard_warning_lights.CheckLights",
+        "sloc": [
+          {
+            "file": "dashboard_warning_lights.ads",
+            "line": 16
+          }
+        ]
+      },
+      "check_tree": [
+        {
+          "proof_attempts": {
+            "CVC4": {
+              "result": "Unknown\n()",
+              "steps": 1,
+              "time": 0
+            },
+            "CVC4_CE": {
+              "result": "Unknown\n()",
+              "steps": 1,
+              "time": 0
+            }
+          },
+          "transformations": {
+          }
+        }
+      ],
+      "check_file": "dashboard_warning_lights.ads",
+      "check_line": 18,
+      "check_col": 14,
+      "msg_id": 0,
+      "session_dir": 1,
+      "how_proved": "prover"
+    }
+  ],
+  "assumptions": [
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "dashboard_warning_lights",
+          "sloc": [
+            {
+              "file": "dashboard_warning_lights.ads",
+              "line": 1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+        {
+          "predicate": "CLAIM_EFFECTS",
+          "arg": {
+            "name": "dashboard_warning_lights.LightsOff",
+            "sloc": [
+              {
+                "file": "dashboard_warning_lights.ads",
+                "line": 20
+              }
+            ]
+          }
+        }
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "dashboard_warning_lights.CheckLights",
+          "sloc": [
+            {
+              "file": "dashboard_warning_lights.ads",
+              "line": 16
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_EFFECTS",
+        "arg": {
+          "name": "dashboard_warning_lights.LightsOff",
+          "sloc": [
+            {
+              "file": "dashboard_warning_lights.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    },
+    {
+      "assumptions": [
+      ],
+      "claim": {
+        "predicate": "CLAIM_AORTE",
+        "arg": {
+          "name": "dashboard_warning_lights.LightsOff",
+          "sloc": [
+            {
+              "file": "dashboard_warning_lights.ads",
+              "line": 20
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "timings": {
+    "codepeer results": 3.81999998353422E-05,
+    "init_why_sections": 4.81900002341717E-04,
+    "gnatwhy3.run_vcs": 0.00000000000000E+00,
+    "globals (advanced)": 1.10446996986866E-02,
+    "flow analysis": 1.12519995309412E-03,
+    "marking": 9.16999997571111E-05,
+    "translation of standard": 3.32099990919232E-03,
+    "properties (advanced)": 2.39000000874512E-05,
+    "gnatwhy3.register_vcs": 0.00000000000000E+00,
+    "globals (basic)": 1.17517001926899E-02,
+    "gnatwhy3.schedule_vcs": 0.00000000000000E+00,
+    "gnatwhy3.save_session": 0.00000000000000E+00,
+    "gnatwhy3.init": 1.87500000000000E-01
+  }
+}

@@ -1,0 +1,3 @@
+dashboard_warning_lights.ads:20:13: error: quantified expression must be parenthesized
+dashboard_warning_lights.ads:21:14: error: quantified expression must be parenthesized
+dashboard_warning_lights.ads:22:04: error: no "begin" for this "end"

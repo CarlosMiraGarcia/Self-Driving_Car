@@ -1,0 +1,2 @@
+dashboard_warning_lights.adb:6:15: error: ":=" should be "="
+dashboard_warning_lights.adb:7:20: error: missing ";"

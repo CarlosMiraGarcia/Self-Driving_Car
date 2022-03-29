@@ -1,0 +1,2 @@
+dashboard_warning_lights.adb:1:14: error: missing body for "CheckLights" declared at dashboard_warning_lights.ads:23
+dashboard_warning_lights.ads:21:26: error: prefix for "range" attribute must be array

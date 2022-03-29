@@ -1,0 +1,2 @@
+dashboard_warning_lights.ads:13:09: error: "Lights" conflicts with declaration at line 5
+dashboard_warning_lights.ads:13:26: error: type "Lights" cannot be used before end of its declaration

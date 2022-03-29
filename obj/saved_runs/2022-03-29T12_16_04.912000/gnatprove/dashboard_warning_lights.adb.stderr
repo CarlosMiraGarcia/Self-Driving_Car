@@ -1,0 +1,1 @@
+dashboard_warning_lights.ads:20:42: medium: postcondition might fail, cannot prove This(i).state = Off (e.g. when This(ReadyToDrive).state = Error and This(EcoMode).state = Off and This(Charging).state = Off and This(GeneralFault).state = Off and This(ElectricalFault).state = Off and i = ReadyToDrive)[#0]

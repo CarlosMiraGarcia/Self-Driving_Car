@@ -1,0 +1,2 @@
+main.adb:21:65: error: missing "then"
+main.adb:22:09: error: statement expected

@@ -1,0 +1,6 @@
+main.adb:9:11: error: missing Range attribute in iteration over an array
+main.adb:9:11: error: if "i" is meant to designate an element of the array, use "of"
+main.adb:10:29: error: expected type "Standard.Boolean"
+main.adb:10:29: error: found type "Light" defined at dashboard_warning_lights.ads:9
+dashboard_warning_lights.ads:13:09: error: "Lights" conflicts with declaration at line 5
+dashboard_warning_lights.ads:13:26: error: type "Lights" cannot be used before end of its declaration

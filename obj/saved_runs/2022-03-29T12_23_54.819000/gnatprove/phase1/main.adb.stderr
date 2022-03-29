@@ -1,0 +1,2 @@
+main.adb:5:04: error: declaration expected
+main.adb:11:03: error: missing "end loop;" for "loop" at line 9

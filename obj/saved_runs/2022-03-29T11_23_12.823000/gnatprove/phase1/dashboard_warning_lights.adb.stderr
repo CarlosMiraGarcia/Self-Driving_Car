@@ -1,0 +1,3 @@
+dashboard_warning_lights.ads:15:07: error: missing "end record;" for "record" at line 6
+dashboard_warning_lights.ads:15:09: error: delimiter required between literal and identifier
+dashboard_warning_lights.ads:19:04: error: no "begin" for this "end"
