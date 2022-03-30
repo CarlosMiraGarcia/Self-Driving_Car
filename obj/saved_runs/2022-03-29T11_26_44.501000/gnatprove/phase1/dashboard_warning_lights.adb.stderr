@@ -1,2 +1,0 @@
-dashboard_warning_lights.adb:1:01: error: spec of this package does not allow a body
-dashboard_warning_lights.adb:5:13: error: missing ";"

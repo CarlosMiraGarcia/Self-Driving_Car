@@ -1,5 +1,0 @@
-dashboard_warning_lights.adb:14:13: error: array type is already constrained
-dashboard_warning_lights.adb:14:22: error: "." should be ";"
-dashboard_warning_lights.adb:16:14: error: expected type "Switch" defined at dashboard_warning_lights.ads:4
-dashboard_warning_lights.adb:16:14: error: found type "Lights" defined at dashboard_warning_lights.ads:13
-dashboard_warning_lights.ads:20:37: error: "," should be ";"

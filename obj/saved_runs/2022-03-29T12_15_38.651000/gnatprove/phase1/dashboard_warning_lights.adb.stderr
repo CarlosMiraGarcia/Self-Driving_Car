@@ -1,2 +1,0 @@
-dashboard_warning_lights.adb:3:14: error: not fully conformant with declaration at dashboard_warning_lights.ads:18
-dashboard_warning_lights.adb:3:14: error: mode of "This" does not match

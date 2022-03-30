@@ -1,5 +1,0 @@
-dashboard_warning_lights.adb:1:14: error: missing body for "LightsOff" declared at dashboard_warning_lights.ads:16
-dashboard_warning_lights.ads:17:27: error: prefix of "range" attribute must be a type
-dashboard_warning_lights.ads:17:41: error: array type required in indexed component
-dashboard_warning_lights.ads:18:28: error: prefix of "range" attribute must be a type
-dashboard_warning_lights.ads:18:42: error: array type required in indexed component

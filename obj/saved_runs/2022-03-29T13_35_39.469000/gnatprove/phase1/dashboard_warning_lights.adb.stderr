@@ -1,3 +1,0 @@
-dashboard_warning_lights.adb:14:35: error: invalid prefix in selected component "state"
-dashboard_warning_lights.adb:14:41: error: missing ";"
-dashboard_warning_lights.ads:20:37: error: "," should be ";"

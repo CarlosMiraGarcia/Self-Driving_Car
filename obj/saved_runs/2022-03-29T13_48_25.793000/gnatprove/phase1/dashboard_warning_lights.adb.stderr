@@ -1,2 +1,0 @@
-dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not allowed
-dashboard_warning_lights.ads:20:83: error: missing ";"

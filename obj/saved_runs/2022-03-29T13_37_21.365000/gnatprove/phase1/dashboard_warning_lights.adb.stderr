@@ -1,4 +1,0 @@
-dashboard_warning_lights.adb:14:16: error: subtype mark required in this context
-dashboard_warning_lights.adb:14:16: error: found "This" declared at dashboard_warning_lights.ads:20
-dashboard_warning_lights.adb:14:20: error: incorrect constraint for this kind of type
-dashboard_warning_lights.adb:14:23: error: "." should be ";"

@@ -1,6 +1,0 @@
-dashboard_warning_lights.adb:5:16: error: expected a discrete type
-dashboard_warning_lights.adb:5:16: error: found type "Dashboard" defined at dashboard_warning_lights.ads:6
-dashboard_warning_lights.adb:7:13: error: assignment to loop parameter not allowed
-dashboard_warning_lights.adb:7:15: error: "=" should be ":="
-dashboard_warning_lights.ads:22:27: error: prefix for "range" attribute must be array
-dashboard_warning_lights.ads:23:28: error: prefix for "range" attribute must be array

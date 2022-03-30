@@ -1,3 +1,0 @@
-dashboard_warning_lights.ads:21:07: error: expression function must be enclosed in parentheses
-dashboard_warning_lights.ads:23:30: error: missing ";"
-dashboard_warning_lights.ads:25:01: error: missing "return"

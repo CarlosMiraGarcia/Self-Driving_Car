@@ -1,5 +1,0 @@
-dashboard_warning_lights.adb:14:13: error: subtype mark required in this context
-dashboard_warning_lights.adb:14:13: error: found "y" declared at dashboard_warning_lights.ads:20
-dashboard_warning_lights.adb:14:18: error: "state" is undefined
-dashboard_warning_lights.adb:14:23: error: missing ";"
-dashboard_warning_lights.ads:20:37: error: "," should be ";"

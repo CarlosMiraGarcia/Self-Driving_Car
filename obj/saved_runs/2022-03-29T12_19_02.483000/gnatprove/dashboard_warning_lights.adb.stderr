@@ -1,1 +1,0 @@
-dashboard_warning_lights.ads:21:42: medium: postcondition might fail, cannot prove This(i).state = Off (e.g. when This = (others => (state => On)) and i = ReadyToDrive)[#0]

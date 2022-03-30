@@ -1,1 +1,0 @@
-dashboard_warning_lights.ads:14:42: medium: postcondition might fail, cannot prove This(i) = On (e.g. when This(ReadyToDrive) = -1 and i = ReadyToDrive)[#0]

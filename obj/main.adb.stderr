@@ -1,1 +1,0 @@
-main.adb:7:04: warning: variable "Input" is never read and never assigned [-gnatwv]

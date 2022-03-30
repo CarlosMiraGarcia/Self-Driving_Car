@@ -1,2 +1,0 @@
-dashboard_warning_lights.adb:15:36: error: missing ";"
-dashboard_warning_lights.adb:17:01: error: "end CheckCharging;" expected

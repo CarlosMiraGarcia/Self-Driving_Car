@@ -1,5 +1,0 @@
-dashboard_warning_lights.adb:15:12: error: invalid operand types for operator "="
-dashboard_warning_lights.adb:15:12: error: left operand has type "Switch" defined at dashboard_warning_lights.ads:4
-dashboard_warning_lights.adb:15:12: error: right operand has a string type
-dashboard_warning_lights.adb:16:10: error: assignment to "in" mode parameter not allowed
-dashboard_warning_lights.ads:20:79: error: missing ";"

@@ -1,2 +1,0 @@
-main.adb:16:37: error: "ESC" is not visible
-main.adb:16:37: error: non-visible declaration in package Standard.ASCII

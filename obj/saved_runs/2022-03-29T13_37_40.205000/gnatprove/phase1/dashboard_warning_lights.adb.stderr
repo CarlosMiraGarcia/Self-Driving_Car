@@ -1,2 +1,0 @@
-dashboard_warning_lights.adb:14:26: error: expected type "Switch" defined at dashboard_warning_lights.ads:4
-dashboard_warning_lights.adb:14:26: error: found a composite type
