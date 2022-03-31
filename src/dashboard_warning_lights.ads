@@ -1,24 +1,34 @@
 package dashboard_warning_lights with SPARK_Mode is
 
    --Types
-   type Switch is (On, Off, Error);
+   type Switch is (On, Off);
+   type Error is (On, Off);
    type TypesOfLights is (ReadyToDrive, Charging, GeneralFault, ElectricalFault,
-                   MasterWarning, BatteryTemperature,
-                   BatteryCharge, LimitedPower, LowBattery);
+                          MasterWarning, BatteryTemperature, BatteryCharge,
+                          LimitedPower, LowBattery);
 
    type Light is tagged record
       state : Switch;
+      fault : Error;
    end record;
 
-   type Lights is array (TypesOfLights) of Light;
+   type DashboardLights is array (TypesOfLights) of Light;
 
+   type Dashboard is tagged record
+      lights : DashboardLights;
+   end record;
 
-   procedure LightsOff (This : in out Lights) with
-     Pre => (for all i in This'Range => This(i).state /= Off),
-     Post => (for all i in This'Range => This(i).state = Off);
+   procedure LightsOff (This : in out Dashboard) with
+     Pre'Class => (for all i in This.lights'Range => This.lights(i).state /= Off),
+     Post => (for all i in This.lights'Range => This.lights(i).state = Off);
 
-   procedure CheckLight (x: in Switch; y : in TypesOfLights; This : in out Lights) with
-     Pre => x = On or x = Off or x = Error;
+   procedure LightsOn (This : in out Dashboard) with
+     Pre'Class => (for all i in This.lights'Range => This.lights(i).state /= On),
+     Post => (for all i in This.lights'Range => This.lights(i).state = On);
 
+   procedure CheckLights (This : in out Dashboard) with
+     Post => (for all i in This.lights'Range => This.lights(i).state = On or This.lights(i).state = Off);
+
+   function CreateLights return Dashboard;
 
 end dashboard_warning_lights;
