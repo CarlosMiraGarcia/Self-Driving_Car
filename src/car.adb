@@ -3,12 +3,21 @@ with helpers; use helpers;
 
 package body car with SPARK_Mode is
 
-   procedure Accelerate (This : in out Car; ThisRoad : in road.Road)  is
+   procedure Accelerate (This : in out Car)  is
    begin
-      if This.speed < ThisRoad.speed_limit then
-         This.speed := This.speed + 1;
-      end if;
+      This.speed := This.speed + 1;
+      This.carBattery.UseBattery;
    end Accelerate;
+
+   procedure KeepSpeed (This : in out Car) is
+   begin
+        This.carBattery.UseBattery;
+   end KeepSpeed;
+
+   procedure Decelerate (This : in out Car)  is
+   begin
+      This.speed := This.speed - 1;
+   end Decelerate;
 
    procedure StartingCar (This : in Car) is
       type Index is range 1..14;
@@ -52,11 +61,40 @@ package body car with SPARK_Mode is
       end loop;
    end StartingCar;
 
-   procedure FindSpeedLimit (This : in out Car; speed : in SpeedLimit) is
+   procedure Update (This : in out car) is
    begin
-      if This.roadlimit /= speed then
-         This.roadlimit := speed;
+      this.dashboardLights.CheckLights;
+      if This.driving = True and This.carBattery.charging = False and This.carBattery.charge >= DischargeRatio then
+         if This.speed <= This.currentRoad.speed_limit and This.carBattery.charging = False then
+            if This.speed < This.currentRoad.speed_limit then
+               This.dashboardLights.lights(ReadyToDrive).state := On;
+               This.Accelerate;
+            else
+               This.KeepSpeed;
+            end if;
+         end if;
+      else
+         if This.carBattery.charge = MinCharge and This.driving = True then
+            This.dashboardLights.lights(ReadyToDrive).state := Off;
+            This.dashboardLights.lights(LowBattery).state := On;
+            if This.speed > SpeedRange'First then
+               This.Decelerate;
+            else
+               This.driving := False;
+            end if;
+         elsif This.driving = False and This.carBattery.charge < MaxCharge then
+            This.carBattery.ChargeBattery;
+            This.dashboardLights.lights(Charging).state := On;
+            This.dashboardLights.lights(ReadyToDrive).state := Off;
+            This.carBattery.charging := True;
+            if This.carBattery.charge = MaxCharge then
+               This.carBattery.charging := False;
+               This.dashboardLights.lights(LowBattery).state := Off;
+               This.dashboardLights.lights(Charging).state := Off;
+               This.driving := True;
+            end if;
+         end if;
       end if;
-   end FindSpeedLimit;
+   end Update;
 
 end car;
