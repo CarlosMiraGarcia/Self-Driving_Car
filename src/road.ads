@@ -1,14 +1,19 @@
 package road with SPARK_Mode is
 
-   type SpeedLimit is range 10..70;
+   type SpeedRange is range 0..70;
 
    type Road is tagged record
-      speed_limit : SpeedLimit;
+      speed_limit : SpeedRange;
    end record;
 
-   procedure UpdateRoadLimit (This : in out Road; speed : in SpeedLimit) with
-     Pre'Class => speed >= SpeedLimit'First and speed <= SpeedLimit'Last,
-     Post => This.speed_limit >= SpeedLimit'First and This.speed_limit <= SpeedLimit'Last;
+   procedure UpdateRoadLimit (This : in out Road; speed : in SpeedRange) with
+     Pre'Class => speed >= SpeedRange'First and speed <= SpeedRange'Last and speed /= This.speed_limit,
+     Post => This.speed_limit >= SpeedRange'First and This.speed_limit <= SpeedRange'Last;
 
+   function CreateRoad return Road;
+
+   procedure SetSpeedLimit (This : in out Road; speed : in SpeedRange) with
+     Pre'Class => This.speed_limit /= speed and speed >= SpeedRange'First and speed <= SpeedRange'Last,
+     Post => This.speed_limit >= SpeedRange'First and This.speed_limit <= SpeedRange'Last;
 
 end road;
