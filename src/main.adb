@@ -11,6 +11,7 @@ with helpers; use helpers;
 
 procedure Main is
    dummy_car: car.Car;
+
    type Lines is
       record
          Line  : Ada.Strings.Unbounded.Unbounded_String;
@@ -62,11 +63,25 @@ procedure Main is
    end Read_File;
 
 begin
-   -- Clear;
    dummy_car.StartingCar;
-   dummy_car.dashboardLights.LightsOn;
-   delay(0.5);
-   dummy_car.dashboardLights.CheckLights;
+   delay(0.1);
+   Clear;
+   dummy_car.currentRoad.SetSpeedLimit(10);
+   dummy_car.driving := True;
+   delay(0.1);
+   while true loop
+      Clear;
+      dummy_car.Update;
+      Put_Line ("Driving: " & dummy_car.driving'Image);
+      Put_line ("Charging: " & dummy_car.carBattery.charging'Image);
+      Put_Line ("Battery_Status: " & dummy_car.carBattery.charge'Image & "%");
+      Put_Line ("Car Speed: " & dummy_car.speed'Image & " mph");
+      Put_Line ("Road Speed: " & dummy_car.currentRoad.speed_limit'Image & " mph");
+      --  Put_line("Press:");
+      --  Put_line("1 for Start");
+      delay(0.3);
+   end loop;
+
    --  delay 0.5;
    -- Read_File;
    -- dashboard_warning_lights.LightsOn;
