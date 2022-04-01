@@ -8,48 +8,59 @@ package body dashboard_warning_lights with SPARK_Mode is
    procedure LightsOff (This : in out Dashboard) is
    begin
       for i in This.lights'Range loop
-        This.lights(i).state := Off;
+         This.lights(i).state := Off;
+         Put (i'Image);
+         Put (HT & HT &  "");
+         if i = GeneralFault then
+            Put_Line("");
+         end if;
       end loop;
    end LightsOff;
 
    procedure LightsOn (This : in out Dashboard) is
    begin
-      Clear;
       for i in This.lights'Range loop
          This.lights(i).state := On;
-         Put (i'Image & ": ");
          Put (ESC & "[92m");
-         Put (This.lights(i).state'Image);
-         Put_Line (ESC & "[0m");
+         Put (i'Image);
+         Put (ESC & "[0m");
+         Put (HT & HT &  "");
+         if i = GeneralFault then
+            Put_Line("");
+         end if;
       end loop;
    end LightsOn;
 
-   procedure CheckLights (This : in out Dashboard) is
+   procedure CheckLights (This : in Dashboard) is
    begin
-      Clear;
       for i in This.lights'Range loop
-         Put (i'Image & ": ");
-         if This.lights(i).fault = On then
-            This.lights(i).state := On;
+         if This.lights(i).state = Off then
+            Put (i'Image);
+            Put (HT & HT & "");
+         elsif This.lights(i).state = On then
+            Put (ESC & "[92m");
+            Put (i'Image);
+            Put (ESC & "[0m");
+            Put (HT & HT & "");
+         else
             Put (ESC & "[91m");
-            Put (This.lights(i).state'Image);
-            Put_Line (ESC & "[0m");
-         elsif This.lights(i).fault = Off then
-            This.lights(i).state := Off;
-            Put (ESC & "[93m");
-            Put (This.lights(i).state'Image & ESC & "[0m");
-            Put_Line (ESC & "[0m");
+            Put (i'Image);
+            Put (ESC & "[0m");
+            Put (HT & HT & "");
          end if;
-
-
+         if i = GeneralFault then
+            Put_Line("");
+         end if;
       end loop;
+      Put_Line("");
+      Put_Line("");
    end CheckLights;
 
    function CreateLights return Dashboard is
       result : Dashboard;
    begin
       for i in DashboardLights'Range loop
-         result.lights(i) := (state => (Off), fault => (Off));
+         result.lights(i) := (state => (Off));
       end loop;
       return result;
    end CreateLights;
