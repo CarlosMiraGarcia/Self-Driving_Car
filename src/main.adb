@@ -4,25 +4,28 @@ with Ada.Characters.Latin_1; use Ada.Characters.Latin_1;
 with Ada.Text_IO.Text_Streams; use Ada.Text_IO.Text_Streams;
 with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
 with Ada.Text_IO.Unbounded_IO;
-with car; use car;
+with vehicle; use vehicle;
 with dashboard_warning_lights; use dashboard_warning_lights;
+with carbattery; use carbattery;
 with road; use road;
 with helpers; use helpers;
 
 procedure Main is
-   dummy_car: car.Car;
+   dummy_car: vehicle.Car;
+   Line : Unbounded_String;
+   Ch : String (1..1);
 
    type Lines is
       record
          Line  : Ada.Strings.Unbounded.Unbounded_String;
       end record;
    type LinesArray is array (Natural range <>) of Lines;
-   Line : Unbounded_String;
 
    procedure Read_File is
       File_Input : File_Type;
       Lines_Array : LinesArray(1..310);
       SeparatorLine : String := "________________________________________";
+
    begin
       Open (File => File_Input,
             Mode => In_File,
@@ -63,23 +66,56 @@ procedure Main is
    end Read_File;
 
 begin
-   dummy_car.StartingCar;
-   delay(0.1);
-   Clear;
    dummy_car.currentRoad.SetSpeedLimit(10);
-   dummy_car.driving := True;
-   delay(0.1);
-   while true loop
+   loop
       Clear;
-      dummy_car.Update;
-      Put_Line ("Driving: " & dummy_car.driving'Image);
-      Put_line ("Charging: " & dummy_car.carBattery.charging'Image);
-      Put_Line ("Battery_Status: " & dummy_car.carBattery.charge'Image & "%");
-      Put_Line ("Car Speed: " & dummy_car.speed'Image & " mph");
-      Put_Line ("Road Speed: " & dummy_car.currentRoad.speed_limit'Image & " mph");
-      --  Put_line("Press:");
-      --  Put_line("1 for Start");
-      delay(0.3);
+      dummy_car.dashboardLights.CheckLights;
+      if dummy_car.carStatus = Off and dummy_car.carBattery.charging = False then
+         Put_Line ("Press a key followed by Enter:" & HT & HT & "        _______");
+         Put_Line (HT & HT & HT & HT & "               //  ||\ \");
+         Put_Line (HT & ESC & "[102m" & " 1 " & ESC & "[0m" & " to Start the car." & HT & HT & " _____//___||_\ \___");
+         Put_Line (HT & ESC & "[102m" & " 2 " & ESC & "[0m" & " to Charge the car." & HT & HT & " )  _          _    \");
+         Put_Line (HT & ESC & "[102m" & " 3 " & ESC & "[0m" & " to Change gear." & HT & HT & " |_/ \________/ \___|");
+         Put_Line (HT & ESC & "[102m" & " 0 " & ESC & "[0m" & " to exit the program." & "        ___\_/________\_/______");
+         Put_Line (HT & HT & HT & HT & "        Art by Colin Douthwaite");
+         Get (Item => Ch);
+         if Ch = "1" then
+            dummy_car.StartingCar;
+         elsif Ch = "2" then
+            if dummy_car.carBattery.charge < BatteryCharge'Last then
+               Clear;
+               dummy_car.carBattery.charging := True;
+               dummy_car.carStatus := Off;
+               Put_Line ("chargin");
+            else
+               Clear;
+               Put_Line ("The battery is full!");
+               delay(1.0);
+            end if;
+         --  elsif Ch = "3" then
+         --  end if;
+         elsif Ch = "0" then
+            Clear;
+            exit;
+         end if;
+      elsif dummy_car.carStatus = On then
+         dummy_car.Update;
+         Put_Line ("Car status: " & dummy_car.carStatus'Image);
+         Put_Line ("Gear status: " & dummy_car.gearStatus'Image);
+         Put_line ("Charging: " & dummy_car.carBattery.charging'Image);
+         Put_Line ("Battery Status: " & dummy_car.carBattery.charge'Image & "%");
+         Put_Line ("Car Speed: " & dummy_car.speed'Image & " mph");
+         Put_Line ("Road Speed: " & dummy_car.currentRoad.speed_limit'Image & " mph");
+         Put_Line ("");
+         delay(0.3);
+      elsif dummy_car.carBattery.charging = True then
+         dummy_car.Update;
+         Put_Line ("Charging the Battery");
+         Put_line ("Charging: " & dummy_car.carBattery.charging'Image);
+         Put_Line ("Battery Status: " & dummy_car.carBattery.charge'Image & "%");
+         delay(0.3);
+      end if;
+
    end loop;
 
    --  delay 0.5;
