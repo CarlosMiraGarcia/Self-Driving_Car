@@ -3,16 +3,15 @@ with helpers; use helpers;
 
 package carbattery with SPARK_Mode is
 
-   type BatteryCharge is range 0..20;
+   type BatteryCharge is range 0..5;
    DischargeRatio : constant BatteryCharge := 1;
    Threshold : constant BatteryCharge := (BatteryCharge'Last - DischargeRatio);
-   MaxCharge: constant BatteryCharge := 20;
+   MaxCharge: constant BatteryCharge := 5;
    MinCharge: constant BatteryCharge := 0;
 
    type Battery is tagged record
       charge : BatteryCharge;
       charging : Boolean;
-
    end record;
 
    procedure ChargeBattery (This : in out Battery) with
