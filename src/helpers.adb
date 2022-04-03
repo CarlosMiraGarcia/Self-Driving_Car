@@ -1,5 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
+
 package body helpers with SPARK_Mode is
 
   procedure Clear is
