@@ -33,27 +33,27 @@ package body dashboard_warning_lights with SPARK_Mode is
 
    procedure CheckLights (This : in Dashboard) is
    begin
+      Put (HT);
       for i in This.lights'Range loop
          if This.lights(i).state = Off then
-            Put (i'Image);
+            Put (" " & i'Image & " ");
             Put (HT & HT & "");
          elsif This.lights(i).state = On then
-            Put (ESC & "[92m");
-            Put (i'Image);
+            Put (ESC & "[102m");
+            Put (" " & i'Image & " ");
             Put (ESC & "[0m");
             Put (HT & HT & "");
          else
-            Put (ESC & "[91m");
-            Put (i'Image);
+            Put (ESC & "[101mm");
+            Put (" " & i'Image & " ");
             Put (ESC & "[0m");
             Put (HT & HT & "");
          end if;
          if i = GeneralFault then
             Put_Line("");
+            Put (HT);
          end if;
       end loop;
-      Put_Line("");
-      Put_Line("");
    end CheckLights;
 
    function CreateLights return Dashboard is
