@@ -1,3 +1,4 @@
+
 with dashboard_warning_lights; use dashboard_warning_lights;
 with road; use road;
 with carbattery; use carbattery;
@@ -7,7 +8,7 @@ package vehicle with SPARK_Mode is
    type Gear is (Parked, Advancing, Reversing);
    type Status is (On, Off);
 
-   type Car is tagged record
+   type Car is record
       speed : SpeedRange := 0;
       dashboardLights : Dashboard := CreateLights;
       carBattery : Battery := CreateBattery;
@@ -17,29 +18,36 @@ package vehicle with SPARK_Mode is
    end record;
 
    procedure Accelerate (This : in out Car) with
-     Pre'Class => This.speed <= SpeedRange'Last and This.speed < This.currentRoad.speed_limit
-     and This.carBattery.charge > MinCharge and This.carBattery.charging = False and
-     This.carBattery.charge <= MaxCharge and This.carStatus = On,
+     Pre => This.speed <= SpeedRange'Last and This.speed < This.currentRoad.speed_limit,
      Post => This.speed = This.speed'Old + 1;
 
-   procedure KeepSpeed (This : in out Car) with
-     Pre'Class => This.speed = This.currentRoad.speed_limit and This.carBattery.charge > MinCharge
-     and This.carBattery.charging = False and This.carBattery.charge <= MaxCharge,
-     Post => This.speed = This.speed'Old;
-
    procedure Decelerate (This : in out Car) with
-     Pre'Class => This.speed > SpeedRange'First and This.carStatus = On,
+     Pre => This.speed > SpeedRange'First,
      Post => This.speed = This.speed'Old - 1;
 
    procedure StartingCar (This: in out Car) with
-     Pre'Class => (for all i in This.dashboardLights.lights'Range => This.dashboardLights.lights(i).state = Off
-                   and This.gearStatus = Parked and This.carStatus = Off),
+     Pre => This.gearStatus = Parked and This.carStatus = Off
+     and (for all i in This.dashboardLights.lights'Range => This.dashboardLights.lights(i).state = Off),
      Post => This.carStatus = On;
 
-   procedure StartCharging (This : in out Car) with
-     Pre'Class => This.gearStatus = Parked and This.carBattery.charge < MaxCharge;
+   procedure GearAdvancing (This: in out Car) with
+     Pre => This.speed = 0,
+     Post => This.gearStatus = Advancing;
 
-   procedure Update (This : in out Car) with
-     Pre'Class => (for all i in This.dashboardLights.lights'Range => This.dashboardLights.lights(i).state = Off);
+   procedure GearReversing (This: in out Car) with
+     Pre => This.speed = 0,
+     Post => This.gearStatus = Reversing;
+
+   procedure GearParked (This: in out Car) with
+     Pre => This.speed = 0,
+     Post => This.gearStatus = Parked;
+
+   procedure PlugBattery (This : in out Car) with
+     Pre => This.gearStatus = Parked and This.carBattery.charge < MaxCharge and This.carStatus = Off;
+
+   procedure Drive (This : in out Car) with
+     Pre => (This.dashboardLights.lights(ReadyToDrive).state = On) and (This.gearStatus = Advancing or This.gearStatus = Reversing)
+     and This.carBattery.charge >= DischargeRatio and This.carBattery.charge > MinCharge
+     and (This.gearStatus = Advancing or This.gearStatus = Reversing) and This.carBattery.charging = Off;
 
 end vehicle;
