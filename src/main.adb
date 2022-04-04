@@ -13,9 +13,12 @@ with helpers; use helpers;
 procedure Main is
    dummy_car: vehicle.Car;
    Line : Unbounded_String;
-   Ch : String (1..1);
+   Ch : Character := Ada.Characters.Latin_1.LC_L;
+   Ch2 : Character := Ada.Characters.Latin_1.LC_L;
    SeparatorLine : String := "________________________________________";
    SeparatorLine2: String := "______________________________________________________________";
+   BaterryPer : Float;
+
    type Lines is
       record
          Line  : Ada.Strings.Unbounded.Unbounded_String;
@@ -65,9 +68,8 @@ procedure Main is
       Close(File => File_Input);
    end Read_File;
 
-begin
-   dummy_car.currentRoad.SetSpeedLimit(10);
-   loop
+   procedure PrintHeader is
+   begin
       Clear;
       Put_Line (HT & SeparatorLine2);
       Put_Line ("");
@@ -76,100 +78,127 @@ begin
       Put_Line (HT & SeparatorLine2);
       Put_Line ("");
       if dummy_car.carStatus = Off then
-         Put (HT & " Car Status: " & HT & ESC & "[101m" & " " & dummy_car.carStatus'Image & " " & ESC & "[0m");
+         Put (HT & " Car Status: " & " " & ESC & "[1;30m" & ESC & "[101m" & " " & dummy_car.carStatus'Image & " " & ESC & "[0m");
       elsif dummy_car.carStatus = On then
-         Put (HT & " Car Status: " & HT & ESC &  "[102m" & " " & dummy_car.carStatus'Image & " " & ESC & "[0m");
+         Put (HT & " Car Status: " & " " & ESC & "[1;30m" & ESC & "[102m" & " " & dummy_car.carStatus'Image & " " & ESC & "[0m");
       end if;
-      Put_Line (HT & HT & HT & "Gear Status: " & dummy_car.gearStatus'Image);
+      if dummy_car.carBattery.charging = Off then
+         Put_Line (HT & HT & HT & "       Charging: " & ESC & "[1;30m" & ESC & "[101m" & " " & dummy_car.carBattery.charging'Image & " " & ESC & "[0m");
+      elsif dummy_car.carBattery.charging = On then
+         Put_Line (HT & HT & HT & "       Charging: " & ESC &  "[1;30m" & ESC & "[102m" & " " & dummy_car.carBattery.charging'Image & " " & ESC & "[0m");
+      end if;
+      Put (HT & " Gear Status: " & dummy_car.gearStatus'Image);
+      BaterryPer := Float(dummy_car.carBattery.charge) / Float(dummy_car.carBattery.MaxCharge);
+      if BaterryPer >= 0.6 then
+         Put_Line(HT & HT & HT & " Battery Status: " & ESC & "[1;30m" & ESC & "[102m" & dummy_car.carBattery.charge'Image  & "% " & ESC & "[0m");
+      elsif (BaterryPer >= 0.2 and BaterryPer < 0.6) then
+         Put_Line (HT & HT & HT & " Battery Status: " & ESC & "[1;30m" & ESC & "[43m" & dummy_car.carBattery.charge'Image  & "% " & ESC & "[0m");
+      else
+         Put_Line (HT & HT & HT & " Battery Status: " & ESC & "[1;30m" & ESC & "[101m" & dummy_car.carBattery.charge'Image  & "% " & ESC & "[0m");
+      end if;
+
+      Put_Line (HT & SeparatorLine2);
+      Put_Line ("");
+      Put_Line (HT & " Road Max Speed: " & dummy_car.currentRoad.speed_limit'Image & " mph");
+      Put_Line (HT & " Car Speed:   " & HT & "  " & dummy_car.speed'Image & " mph");
       Put_Line (HT & SeparatorLine2);
       Put_Line ("");
       Put_Line ("");
+   end PrintHeader;
 
+
+   task My_Task;
+
+   task body My_Task is
+   begin
+      loop
+         Get_Immediate(Ch);
+         delay(0.5);
+      end loop;
+   end My_Task;
+
+begin
+   dummy_car.currentRoad.SetSpeedLimit(10);
+
+   loop
+      PrintHeader;
       if dummy_car.gearStatus = Parked and dummy_car.carBattery.charging = Off then
-         Put_Line (HT & "Press a key followed by Enter:");
+
+         Put_Line (HT & "Type one of the following options and press Enter:");
          Put_Line (HT & HT & HT & HT & HT &  HT &"        _______");
-         Put_Line (HT & ESC & "[102m" & " 1 " & ESC & "[0m" & " to Start the car." & HT & HT & "               //  ||\ \");
-         Put_Line (HT & ESC & "[102m" & " 2 " & ESC & "[0m" & " to Change gear to Parked." & HT & HT & " _____//___||_\ \___");
-         Put_Line (HT & ESC & "[102m" & " 3 " & ESC & "[0m" & " to Change gear to Advancing." & HT & " )  _          _    \");
-         Put_Line (HT & ESC & "[102m" & " 4 " & ESC & "[0m" & " to Change gear to Reversing." & HT & " |_/ \________/ \___|");
-         Put_Line (HT & ESC & "[102m" & " 5 " & ESC & "[0m" & " to Charge the car." & HT & HT & "      _____\_/________\_/____");
-         Put_Line (HT & ESC & "[102m" & " 0 " & ESC & "[0m" & " to exit the program." & HT & "      Art by Colin Douthwaite");
-         Get (Item => Ch);
-         if Ch = "1" then
+         Put_Line (HT & ESC & "[102m" & " s " & ESC & "[0m" & " to (s)tar/(s)top the car." & HT & "               //  ||\ \");
+         Put_Line (HT & ESC & "[102m" & " p " & ESC & "[0m" & " to change gear to (p)arked." & HT & HT & " _____//___||_\ \___");
+         Put_Line (HT & ESC & "[102m" & " a " & ESC & "[0m" & " to change gear to (a)dvancing." & HT & " )  _          _    \");
+         Put_Line (HT & ESC & "[102m" & " r " & ESC & "[0m" & " to c gear to (r)eversing." & HT & HT & " |_/ \________/ \___|");
+         Put_Line (HT & ESC & "[102m" & " c " & ESC & "[0m" & " to (c)harge the car." & HT & "      _____\_/________\_/____");
+         Put_Line (HT & ESC & "[102m" & " e " & ESC & "[0m" & " to (e)xit the program." & HT & "      Art by Colin Douthwaite");
+         delay(0.5);
+         if Ch = Ada.Characters.Latin_1.LC_S then
             if dummy_car.carBattery.charge = BatteryCharge'First then
-               Clear;
                Put_Line (HT & "No battery!!");
                delay(2.0);
             elsif dummy_car.carStatus = Off and dummy_car.gearStatus = Parked
               and (for all i in dummy_car.dashboardLights.lights'Range => dummy_car.dashboardLights.lights(i).state = Off) then
                StartingCar(dummy_car);
+            elsif dummy_car.carStatus = On then
+               dummy_car.dashboardLights.lights(ReadyToDrive).state := Off;
+               dummy_car.carStatus := Off;
             elsif dummy_car.gearStatus /= Parked then
-               Put_Line ("");
-               Put_Line ("");
                Put_Line (HT & "The car cannot be started unless the gear is set to Parked");
                delay(2.0);
-            elsif dummy_car.carStatus = On then
-               Put_Line ("");
-               Put_Line ("");
-               Put_Line (HT & "Car is already on!");
-               delay(2.0);
             end if;
-         elsif Ch = "2" then
+         elsif Ch = Ada.Characters.Latin_1.LC_P then
             if dummy_car.carStatus = Off then
                GearParked(dummy_car);
-            else
-               Put_Line ("");
-               Put_Line ("");
-               Put_Line (HT & "The speed of the car must be 0 before changing gear!");
             end if;
-         elsif Ch = "3" then
+         elsif Ch = Ada.Characters.Latin_1.LC_A then
             if dummy_car.carStatus = On then
                GearAdvancing(dummy_car);
             else
                Put_Line(HT & "The car needs to be switched on before moving forward");
                delay(2.0);
             end if;
-         elsif Ch = "4" then
+         elsif Ch = Ada.Characters.Latin_1.LC_R then
             if dummy_car.carStatus = On then
                GearReversing(dummy_car);
             else
-               Put_Line ("");
-               Put_Line ("");
                Put_Line(HT & "The car needs to be switched on before moving backwards");
                delay(2.0);
             end if;
-         elsif Ch = "5" then
+         elsif Ch = Ada.Characters.Latin_1.LC_C then
             if dummy_car.carBattery.charge < BatteryCharge'Last then
                Clear;
                PlugBattery(dummy_car);
             else
-               Put_Line ("");
-               Put_Line ("");
                Put_Line (HT & "The battery is full!");
                delay(2.0);
             end if;
-         elsif Ch = "0" then
+         elsif Ch = Ada.Characters.Latin_1.LC_E then
             Clear;
             exit;
          end if;
+
       elsif (dummy_car.gearStatus = Advancing or dummy_car.gearStatus = Reversing)
         and dummy_car.dashboardLights.lights(ReadyToDrive).state = On then
-         Drive(dummy_car);
-         Put_Line (HT & "Battery Status: " & dummy_car.carBattery.charge'Image & "%");
-         Put_Line (HT & "Car Speed: " & dummy_car.speed'Image & " mph");
-         Put_Line (HT & "Road Speed: " & dummy_car.currentRoad.speed_limit'Image & " mph");
-         Put_Line ("");
-         -- ADD MENU THAT LET YOU CHANGE GEAR, STOP, STOP THE CAR, ETC...
-         -- ADD MENU THAT LET YOU CHANGE GEAR, STOP, STOP THE CAR, ETC...
-         -- ADD MENU THAT LET YOU CHANGE GEAR, STOP, STOP THE CAR, ETC...
-         -- ADD MENU THAT LET YOU CHANGE GEAR, STOP, STOP THE CAR, ETC...
+            PrintHeader;
+            Drive(dummy_car);
+         Put_Line (HT & "Type one of the following options and press Enter:");
+         Put_Line (HT & HT & HT & HT & HT &  HT &"        _______");
+         Put_Line (HT & ESC & "[102m" & " s " & ESC & "[0m" & " to (s)top the car." & HT & HT & "               //  ||\ \");
+         Put_Line (HT & ESC & "[102m" & " p " & ESC & "[0m" & " to change gear to (p)arked." & HT & HT & " _____//___||_\ \___");
+         Put_Line (HT & ESC & "[102m" & " a " & ESC & "[0m" & " to change gear to (a)dvancing." & HT & " )  _          _    \");
+         Put_Line (HT & ESC & "[102m" & " r " & ESC & "[0m" & " to c gear to (r)eversing." & HT & HT & " |_/ \________/ \___|");
+         Put_Line (HT & ESC & "[102m" & " c " & ESC & "[0m" & " to (c)harge the car." & HT & "      _____\_/________\_/____");
+         Put_Line (HT & ESC & "[102m" & " e " & ESC & "[0m" & " to (e)xit the program." & HT & "      Art by Colin Douthwaite");
          delay(0.5);
+         if Ch = Ada.Characters.Latin_1.LC_E then
+            Clear;
+            dummy_car.gearStatus := Parked;
+         end if;
+
       elsif dummy_car.carBattery.charging = On then
-         PlugBattery(dummy_car);
-         Put_Line (HT & "Charging the Battery");
-         Put_line (HT & "Charging: " & dummy_car.carBattery.charging'Image);
-         Put_Line (HT & "Battery Status: " & dummy_car.carBattery.charge'Image & "%");
          delay(0.5);
+         PlugBattery(dummy_car);
       end if;
    end loop;
 
