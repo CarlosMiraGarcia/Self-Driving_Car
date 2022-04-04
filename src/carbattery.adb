@@ -15,7 +15,9 @@ package body carbattery with SPARK_Mode is
       result : Battery;
    begin
       result := (charge => (15),
-                 charging => (Off));
+                 charging => (Off),
+                 MinCharge => (0),
+                 MaxCharge => (15));
       return result;
    end CreateBattery;
 

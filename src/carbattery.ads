@@ -8,12 +8,12 @@ package carbattery with SPARK_Mode is
    type BatteryCharge is range 0..15;
    DischargeRatio : constant BatteryCharge := 1;
    Threshold : constant BatteryCharge := (BatteryCharge'Last - DischargeRatio);
-   MinCharge: constant BatteryCharge := DischargeRatio;
-   MaxCharge: constant BatteryCharge := BatteryCharge'Last;
 
    type Battery is record
       charge : BatteryCharge;
       charging : Status;
+      MinCharge: BatteryCharge := DischargeRatio;
+      MaxCharge: BatteryCharge := BatteryCharge'Last;
    end record;
 
    procedure ChargeBattery (This : in out Battery) with
@@ -21,7 +21,7 @@ package carbattery with SPARK_Mode is
      Post => This.charge = This.charge'Old + DischargeRatio;
 
    procedure UseBattery (This : in out Battery) with
-     Pre => This.charge > MinCharge and This.charging = Off and This.charge <= MaxCharge,
+     Pre => This.charge > This.MinCharge and This.charging = Off and This.charge <= This.MaxCharge,
      Post => This.charge = This.charge'Old - DischargeRatio;
 
    function CreateBattery return Battery;
