@@ -18,7 +18,6 @@ package body vehicle with SPARK_Mode is
    procedure StartingCar (This : in out Car) is
       type Index is range 1..15;
    begin
-      CheckLights(This.dashboardLights);
       This.dashboardLights.lights(ReadyToDrive).state := On;
       This.carStatus := On;
    end StartingCar;
@@ -53,21 +52,26 @@ package body vehicle with SPARK_Mode is
 
    procedure Drive (This : in out car) is
    begin
-      UseBattery(This.carBattery);
-      if Integer(This.carBattery.charge) - Integer(This.speed) >= 1 then
-         if This.speed < This.currentRoad.speed_limit then
-            Accelerate(This);
+      if This.carStatus = On then
+         UseBattery(This.carBattery);
+         if Integer(This.carBattery.charge) - Integer(This.speed) >= 1 then
+            if This.speed < This.currentRoad.speed_limit then
+               Accelerate(This);
+            end if;
+         else
+            Put_Line(HT & "Battery low. Looking for a place to charge");
+            This.dashboardLights.lights(LowBattery).state := On;
+            if This.speed > SpeedRange'First then
+               Decelerate(This);
+            else
+               This.gearStatus := Parked;
+               This.dashboardLights.lights(ReadyToDrive).state := Off;
+               This.carStatus := Off;
+            end if;
          end if;
       else
-         Put_Line("Looking for a place to charge!!");
-         This.dashboardLights.lights(LowBattery).state := On;
-         if This.speed > SpeedRange'First then
-            Decelerate(This);
-         else
-            This.gearStatus := Parked;
-            This.dashboardLights.lights(ReadyToDrive).state := Off;
-            This.carStatus := Off;
-         end if;
+         Put_Line(HT & "The car needs to be on.");
+         delay(2.0);
       end if;
    end Drive;
 

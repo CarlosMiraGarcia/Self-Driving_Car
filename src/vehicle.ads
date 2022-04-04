@@ -43,11 +43,12 @@ package vehicle with SPARK_Mode is
      Post => This.gearStatus = Parked;
 
    procedure PlugBattery (This : in out Car) with
-     Pre => This.gearStatus = Parked and This.carBattery.charge < MaxCharge and This.carStatus = Off;
+     Pre => This.gearStatus = Parked and This.carBattery.charge < This.carBattery.MaxCharge and This.carStatus = Off;
 
    procedure Drive (This : in out Car) with
      Pre => (This.dashboardLights.lights(ReadyToDrive).state = On) and (This.gearStatus = Advancing or This.gearStatus = Reversing)
-     and This.carBattery.charge >= DischargeRatio and This.carBattery.charge > MinCharge
-     and (This.gearStatus = Advancing or This.gearStatus = Reversing) and This.carBattery.charging = Off;
+     and This.carBattery.charge >= DischargeRatio and This.carBattery.charge > This.carBattery.MinCharge
+     and This.carBattery.charge <= This.carBattery.MaxCharge and (This.gearStatus = Advancing or This.gearStatus = Reversing)
+     and This.carBattery.charging = Off and This.carStatus = On;
 
 end vehicle;
