@@ -15,6 +15,8 @@ package dashboard_warning_lights with SPARK_Mode is
       lights : DashboardLights;
    end record;
 
+   type RandRange is range 1..DashboardLights'Length;
+
    procedure LightsOff (This : in out Dashboard) with
      Pre => (for all i in This.lights'Range => This.lights(i).state /= Off),
      Post => (for all i in This.lights'Range => This.lights(i).state = Off);

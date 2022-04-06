@@ -44,7 +44,7 @@ package body dashboard_warning_lights with SPARK_Mode is
             Put (ESC & "[0m");
             Put (HT & HT & "");
          else
-            Put (ESC & "[101mm");
+            Put (ESC & "[101m");
             Put (" " & i'Image & " ");
             Put (ESC & "[0m");
             Put (HT & HT & "");
