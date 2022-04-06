@@ -10,10 +10,10 @@ package road with SPARK_Mode is
      Pre'Class => speed >= SpeedRange'First and speed <= SpeedRange'Last and speed /= This.speed_limit,
      Post => This.speed_limit >= SpeedRange'First and This.speed_limit <= SpeedRange'Last;
 
-   function CreateRoad return Road;
-
    procedure SetSpeedLimit (This : in out Road; speed : in SpeedRange) with
      Pre'Class => This.speed_limit /= speed and speed >= SpeedRange'First and speed <= SpeedRange'Last,
      Post => This.speed_limit >= SpeedRange'First and This.speed_limit <= SpeedRange'Last;
+
+   function CreateRoad return Road;
 
 end road;
