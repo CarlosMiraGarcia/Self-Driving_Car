@@ -24,6 +24,11 @@ package helpers with SPARK_Mode is
      Global => (In_Out => (Ada.Text_IO.File_System),
                 Input =>  (StringWarning, Ada.Real_Time.Clock_Time));
 
+   procedure PrintInfo (This: in String) with
+     Pre => This'Length < 100,
+     Global => (In_Out => (Ada.Text_IO.File_System),
+                Input =>  (StringWarning, Ada.Real_Time.Clock_Time));
+
    --  procedure ReadFile (File_Input : in out File_Type) with
    --    Pre => Is_Open(File_Input) and then Mode (File_Input) /= In_File,
    --    Global => (In_Out => (Lines_Array, Line_input, Ada.Text_IO.File_System),

@@ -26,6 +26,19 @@ is
       delay(2.0);
    end PrintError;
 
+   procedure PrintInfo (This : in String) is
+   begin
+      Put_Line ("");
+      Put (HT & ESC & "[102m");
+      Put (StringWarning);
+      Put_Line (ESC & "[0m");
+      Put_Line (HT & ESC & "[102m" & "  Info: " & This & ESC & "[0m");
+      Put (HT & ESC & "[102m");
+      Put (StringWarning);
+      Put_Line (ESC & "[0m");
+      delay(2.0);
+   end PrintInfo;
+
    --  procedure ReadFile (File_Input : in out File_Type) is
    --  begin
    --     --  Open (File => File_Input,
