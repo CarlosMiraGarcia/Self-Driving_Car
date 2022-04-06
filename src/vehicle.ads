@@ -17,6 +17,7 @@ package vehicle with SPARK_Mode is
       gearStatus : Gear := Parked;
       carStatus : Status := Off;
       accelerating : Boolean := False;
+      diagnosis: Boolean := False;
    end record;
    StringError : Unbounded_String;
 
@@ -56,6 +57,12 @@ package vehicle with SPARK_Mode is
      and This.carBattery.charge <= This.carBattery.MaxCharge and This.carBattery.charging = Off and This.carStatus = On;
 
    procedure DiagnosisTool (This : in Car) with
-     Pre => This.carStatus = Off and This.gearStatus = Parked;
+     Pre => This.carStatus = On and This.gearStatus = Parked and
+     (for some i in This.dashboardLights.lights'Range => This.dashboardLights.lights(i).error = On);
+
+   procedure FixProblems (This : in out Car) with
+     Pre => This.carStatus = On and This.gearStatus = Parked and
+     (for some i in This.dashboardLights.lights'Range => This.dashboardLights.lights(i).error = On),
+     Post => (for all i in This.dashboardLights.lights'Range => This.dashboardLights.lights(i).error = Off);
 
 end vehicle;
