@@ -54,6 +54,7 @@ package body dashboard_warning_lights with SPARK_Mode is
             Put (HT);
          end if;
       end loop;
+      Put_Line("");
    end CheckLights;
 
    function CreateLights return Dashboard is
