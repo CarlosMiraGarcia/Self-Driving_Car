@@ -39,29 +39,6 @@ is
       delay (2.0);
    end PrintInfo;
 
-   procedure SplitAndRemove
-     (StringInput : in String; Pos : in Integer; CarPrint : in String)
-   is
-      FirstHalf  : String (1 .. Pos);
-      SecondHalf : String (1 .. StringInput'Length - Pos);
-   begin
-      Move (StringInput (1 .. Pos - 1), FirstHalf);
-      Move (StringInput (Pos + CarPrint'Length + 1..StringInput'Last), SecondHalf);
-      Put_Line (HT & "   " & FirstHalf & CarPrint & SecondHalf);
-   end SplitAndRemove;
-
-   function GetChar (StringInput : in String; Pos : in Integer) return String
-   is
-      FirstPart : String (1 .. 1);
-   begin
-      if (StringInput'First <= Pos) then
-         Move (StringInput (Pos .. Pos), FirstPart);
-         return FirstPart;
-      else
-         return "";
-      end if;
-   end GetChar;
-
    procedure PrintMenu is
    begin
 
@@ -91,5 +68,78 @@ is
          HT & "      Art by Colin Douthwaite");
    end PrintMenu;
 
+   procedure PrintHeader (dummy_car : in out vehicle.Car) is
+   begin
+      Put_Line (HT & "__STATUS______________________________________________________");
+      if dummy_car.carStatus = Off then
+         Put (HT & " Car Status: " & " " & ESC & "[1;30m" & ESC & "[101m" & " " &
+                dummy_car.carStatus'Image & " " & ESC & "[0m");
+      elsif dummy_car.carStatus = On then
+         Put (HT & " Car Status: " & " " & ESC & "[1;30m" & ESC & "[102m" & " " &
+                dummy_car.carStatus'Image & " " & ESC & "[0m");
+      end if;
+      if dummy_car.carBattery.charging = Off then
+         Put_Line (HT & HT & HT & "Charging Status: " & ESC & "[1;30m" & ESC &
+                     "[101m" & " " & dummy_car.carBattery.charging'Image & " " & ESC &
+                     "[0m");
+      elsif dummy_car.carBattery.charging = On then
+         Put_Line (HT & HT & HT & "Charging Status: " & ESC & "[1;30m" & ESC &
+                     "[102m" & " " & dummy_car.carBattery.charging'Image & " " & ESC &
+                     "[0m");
+      end if;
+      Put (HT & " Gear Status: " & dummy_car.gearStatus'Image);
+      dummy_car.baterryPer := Float(dummy_car.carBattery.charge) / Float(BatteryCharge'Last);
+
+      if dummy_car.baterryPer >= 0.5 then
+         Put_Line (HT & HT & HT & "Battery Status: " & ESC & "[1;30m" & ESC &
+                     "[102m" & dummy_car.carBattery.charge'Image & "% " & ESC & "[0m");
+      elsif (dummy_car.baterryPer >= 0.1 and dummy_car.baterryPer < 0.5) then
+         Put_Line (HT & HT & HT & "Battery Status: " & ESC & "[1;30m" & ESC &
+                     "[43m" & dummy_car.carBattery.charge'Image & "% " & ESC & "[0m");
+      else
+         Put_Line (HT & HT & HT & "Battery Status: " & ESC & "[1;30m" & ESC &
+                     "[101m" & dummy_car.carBattery.charge'Image & "% " & ESC & "[0m");
+      end if;
+      Put_Line ("");
+      Put_Line (HT & "__SPEEDOMETER_________________________________________________");
+      Put (HT & " Road Max Speed: " & dummy_car.currentRoad.speed_limit'Image & " mph");
+      Put_Line (HT & HT & "Accelerating: " & "  " & dummy_car.accelerating'Image);
+      Put_Line (HT & " Car Speed: " & HT & " " & dummy_car.speed'Image & " mph");
+      Put_Line ("");
+   end PrintHeader;
+
+   procedure PrintDiagnosisMenu is
+   begin
+      Put_Line (HT & "Type one of the following options and press Enter:");
+      Put_Line ("");
+      Put_Line
+        (HT & ESC & "[102m" & " s " & ESC & "[0m" &
+         " to (s)tart the diagnosis.");
+      Put_Line
+        (HT & ESC & "[102m" & " f " & ESC & "[0m" & " to (f)ix the problems.");
+      Put_Line (HT & ESC & "[102m" & " b " & ESC & "[0m" & " to go (b)ack.");
+      Put_Line
+        (HT & ESC & "[102m" & " e " & ESC & "[0m" & " to (e)xit the program.");
+
+   end PrintDiagnosisMenu;
+
+   procedure SplitAndRemove
+     (StringInput : in String; Pos : in Integer; CarPrint : in String)
+   is
+      FirstHalf  : String (1 .. Pos);
+      SecondHalf : String (1 .. StringInput'Length - Pos);
+   begin
+      Move (StringInput (1 .. Pos), FirstHalf);
+      Move (StringInput (Pos + CarPrint'Length + 1..StringInput'Last), SecondHalf);
+      Put_Line (HT & "   " & FirstHalf & CarPrint & SecondHalf);
+   end SplitAndRemove;
+
+   function GetChar (StringInput : in String; Pos : in Integer) return String
+   is
+      FirstPart : String (1 .. 1);
+   begin
+      Move (StringInput (Pos .. Pos), FirstPart);
+      return FirstPart;
+   end GetChar;
 
 end helpers;

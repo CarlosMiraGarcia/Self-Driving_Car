@@ -5,7 +5,6 @@ package body road with SPARK_Mode is
       This.speed_limit := speed;
    end UpdateRoadLimit;
 
-
   function CreateRoad return Road is
       result : Road;
    begin

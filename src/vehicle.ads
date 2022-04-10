@@ -9,7 +9,7 @@ is
 
    type Gear is (Parked, Forward, Reversing);
    type Accelerator is (Yes, No);
-
+   type Direction is (Straight, Left, Right);
    type Car is record
       speed           : SpeedRange := 0;
       dashboardLights : Dashboard  := CreateLights;
@@ -19,6 +19,11 @@ is
       carStatus       : Status     := Off;
       accelerating    : Boolean    := False;
       diagnosis       : Boolean    := False;
+      carPosition     : RoadSize    := 14;
+      steeringWheel   : Direction  := Straight;
+      carSize         : RoadSize    := 9;
+      baterryPer      : Float;
+
    end record;
    StringError : Unbounded_String;
 
@@ -57,14 +62,13 @@ is
 
    procedure PlugBattery (This : in out Car) with
       Pre => This.gearStatus = Parked and
-      This.carBattery.charge < This.carBattery.MaxCharge;
+      This.carBattery.charge < This.carBattery.maxCharge;
 
    procedure Drive (This : in out Car) with
       Pre => (This.dashboardLights.lights (ReadyToDrive).state = On) and
       (This.gearStatus = Forward or This.gearStatus = Reversing) and
-      This.carBattery.charge >= DischargeRatio and
-      This.carBattery.charge > This.carBattery.MinCharge and
-      This.carBattery.charge <= This.carBattery.MaxCharge and
+      This.carBattery.charge > This.carBattery.minCharge and
+      This.carBattery.charge <= This.carBattery.maxCharge and
       This.carBattery.charging = Off and This.carStatus = On;
 
    procedure DiagnosisTool (This : in Car) with
@@ -79,5 +83,10 @@ is
       Post =>
       (for all i in This.dashboardLights.lights'Range =>
          This.dashboardLights.lights (i).error = Off);
+
+   procedure Move (This : in out Car; steeringWheel : in Direction ) with
+     Pre => This.carPosition >= RoadSize'First and then This.carPosition <= RoadSize'Last
+     and then steeringWheel /= Straight;
+
 
 end vehicle;

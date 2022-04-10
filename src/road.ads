@@ -1,6 +1,7 @@
 package road with SPARK_Mode is
 
    type SpeedRange is range 0..70;
+   type RoadSize is range 1..37;
 
    type Road is tagged record
       speed_limit : SpeedRange;

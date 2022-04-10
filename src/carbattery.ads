@@ -1,6 +1,4 @@
 with Ada.Text_IO; use Ada.Text_IO;
-with helpers; use helpers;
-
 package carbattery with SPARK_Mode is
 
    type Status is (On, Off);
@@ -8,22 +6,21 @@ package carbattery with SPARK_Mode is
    currentWait : Integer := 0;
 
    type BatteryCharge is range 0..100;
-   DischargeRatio : constant BatteryCharge := 1;
-   Threshold : constant BatteryCharge := (BatteryCharge'Last - DischargeRatio);
+   DischargeRatio :  constant BatteryCharge := 1;
 
    type Battery is record
       charge : BatteryCharge;
       charging : Status;
-      MinCharge: BatteryCharge := DischargeRatio;
-      MaxCharge: BatteryCharge := BatteryCharge'Last;
+      minCharge: BatteryCharge;
+      maxCharge: BatteryCharge;
    end record;
 
    procedure ChargeBattery (This : in out Battery) with
-     Pre => This.charge < BatteryCharge'Last,
+     Pre => This.charge < This.maxCharge,
      Post => This.charge >= This.charge'Old;
 
    procedure UseBattery (This : in out Battery) with
-     Pre => This.charge > This.MinCharge and This.charging = Off and This.charge <= This.MaxCharge,
+     Pre => This.charge > This.minCharge and This.charging = Off and This.charge <= This.maxCharge,
      Post => This.charge <= This.charge'Old;
 
    function CreateBattery return Battery;

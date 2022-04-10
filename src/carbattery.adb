@@ -2,10 +2,10 @@ package body carbattery with SPARK_Mode is
 
    procedure ChargeBattery (This : in out Battery) is
    begin
-      if BatteryCharge'Last - This.charge >= 10 then
+      if This.maxCharge - This.charge >= 10 then
          This.charge := This.charge + DischargeRatio * 10;
       else
-         This.charge := BatteryCharge'Last;
+         This.charge := This.maxCharge;
       end if;
 
    end ChargeBattery;
@@ -18,10 +18,10 @@ package body carbattery with SPARK_Mode is
    function CreateBattery return Battery is
       result : Battery;
    begin
-      result := (charge => (100),
+      result := (charge => (BatteryCharge'Last),
                  charging => (Off),
-                 MinCharge => (0),
-                 MaxCharge => (30));
+                 minCharge => (DischargeRatio),
+                 maxCharge => (BatteryCharge'Last));
       return result;
    end CreateBattery;
 

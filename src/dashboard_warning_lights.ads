@@ -20,15 +20,12 @@ package dashboard_warning_lights with SPARK_Mode is
    type RandRange is range 1..DashboardLights'Length;
 
    procedure LightsOff (This : in out Dashboard) with
-     Pre => (for all i in This.lights'Range => This.lights(i).state /= Off),
+     Pre => (for some i in This.lights'Range => This.lights(i).state /= Off),
      Post => (for all i in This.lights'Range => This.lights(i).state = Off);
 
-   procedure LightsOn (This : in out Dashboard) with
-     Pre => (for all i in This.lights'Range => This.lights(i).state /= On),
-     Post => (for all i in This.lights'Range => This.lights(i).state = On);
-
    procedure CheckLights (This : in Dashboard) with
-     Pre => (for all i in This.lights'Range => This.lights(i).state = On or This.lights(i).state = Off);
+     Pre => (for all i in This.lights'Range => This.lights(i).state = On or This.lights(i).state = Off
+             or This.lights(i).error = On or This.lights(i).error = Off);
 
    function CreateLights return Dashboard;
 

@@ -9,27 +9,8 @@ package body dashboard_warning_lights with SPARK_Mode is
    begin
       for i in This.lights'Range loop
          This.lights(i).state := Off;
-         Put (i'Image);
-         Put (HT & HT &  "");
-         if i = GeneralFault then
-            Put_Line("");
-         end if;
       end loop;
    end LightsOff;
-
-   procedure LightsOn (This : in out Dashboard) is
-   begin
-      for i in This.lights'Range loop
-         This.lights(i).state := On;
-         Put (ESC & "[92m");
-         Put (i'Image);
-         Put (ESC & "[0m");
-         Put (HT & HT &  "");
-         if i = GeneralFault then
-            Put_Line("");
-         end if;
-      end loop;
-   end LightsOn;
 
    procedure CheckLights (This : in Dashboard) is
    begin
