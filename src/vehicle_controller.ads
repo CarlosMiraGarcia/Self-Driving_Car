@@ -1,9 +1,9 @@
 with Ada.Strings.Unbounded;    use Ada.Strings.Unbounded;
-with dashboard_warning_lights; use dashboard_warning_lights;
-with road;                     use road;
-with carbattery;               use carbattery;
+with dashboard_controller;     use dashboard_controller;
+with road_controller;          use road_controller;
+with battery_controller;       use battery_controller;
 
-package vehicle with
+package vehicle_controller with
    SPARK_Mode
 is
 
@@ -14,7 +14,7 @@ is
       speed           : SpeedRange := 0;
       dashboardLights : Dashboard  := CreateLights;
       carBattery      : Battery    := CreateBattery;
-      currentRoad     : road.Road  := CreateRoad;
+      currentRoad     : Road       := CreateRoad;
       gearStatus      : Gear       := Parked;
       carStatus       : Status     := Off;
       accelerating    : Boolean    := False;
@@ -90,4 +90,4 @@ is
       and then This.carPosition <= RoadSize'Last
       and then steeringWheel /= Straight;
 
-end vehicle;
+end vehicle_controller;

@@ -1,7 +1,7 @@
 with Ada.Text_IO; use Ada.Text_IO;
 with helpers;     use helpers;
 
-package body object_detection with
+package body object_detection_controller with
    SPARK_Mode
 is
 
@@ -83,4 +83,4 @@ is
       end if;
    end AvoidObject;
 
-end object_detection;
+end object_detection_controller;

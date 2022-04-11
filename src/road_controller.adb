@@ -1,4 +1,4 @@
-package body road with SPARK_Mode is
+package body road_controller with SPARK_Mode is
 
    procedure UpdateRoadLimit (This : in out Road; speed : in SpeedRange) is
    begin
@@ -17,4 +17,4 @@ package body road with SPARK_Mode is
       This.speed_limit := speed;
    end SetSpeedLimit;
 
-end road;
+end road_controller;

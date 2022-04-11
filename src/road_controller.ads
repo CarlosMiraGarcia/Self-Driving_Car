@@ -1,4 +1,4 @@
-package road with SPARK_Mode is
+package road_controller with SPARK_Mode is
 
    type SpeedRange is range 0..70;
    type RoadSize is range 1..37;
@@ -17,4 +17,4 @@ package road with SPARK_Mode is
 
    function CreateRoad return Road;
 
-end road;
+end road_controller;

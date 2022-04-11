@@ -3,7 +3,7 @@ with Ada.Characters.Latin_1; use Ada.Characters.Latin_1;
 with Ada.Strings.Maps;
 with helpers; use helpers;
 
-package body vehicle with
+package body vehicle_controller with
    SPARK_Mode
 is
 
@@ -191,4 +191,4 @@ is
       end if;
    end Move;
 
-end vehicle;
+end vehicle_controller;

@@ -1,8 +1,8 @@
-with helpers; use helpers;
-with vehicle; use vehicle;
-with road;    use road;
+with helpers;            use helpers;
+with vehicle_controller; use vehicle_controller;
+with road_controller;    use road_controller;
 
-package object_detection with
+package object_detection_controller with
    SPARK_Mode
 is
 
@@ -17,8 +17,7 @@ is
 
    procedure AvoidObject
      (NewLine : in ScanLine; Dummy_Car : in out Car; j : in Integer) with
-     Pre => Dummy_Car.carPosition <= RoadSize'First and Dummy_Car.carPosition <= RoadSize'Last
-     and Dummy_Car.carSize = 9;
+      Pre => Dummy_Car.carPosition <= RoadSize'First and
+      Dummy_Car.carPosition <= RoadSize'Last and Dummy_Car.carSize = 9;
 
-
-end object_detection;
+end object_detection_controller;

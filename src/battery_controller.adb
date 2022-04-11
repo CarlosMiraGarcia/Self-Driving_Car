@@ -1,4 +1,4 @@
-package body carbattery with SPARK_Mode is
+package body battery_controller with SPARK_Mode is
 
    procedure ChargeBattery (This : in out Battery) is
    begin
@@ -25,4 +25,4 @@ package body carbattery with SPARK_Mode is
       return result;
    end CreateBattery;
 
-end carbattery;
+end battery_controller;

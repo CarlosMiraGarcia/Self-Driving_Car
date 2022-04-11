@@ -1,5 +1,5 @@
 with Ada.Text_IO; use Ada.Text_IO;
-package carbattery with SPARK_Mode is
+package battery_controller with SPARK_Mode is
 
    type Status is (On, Off);
    wait : Constant Integer := 3;
@@ -25,4 +25,4 @@ package carbattery with SPARK_Mode is
 
    function CreateBattery return Battery;
 
-end carbattery;
+end battery_controller;
