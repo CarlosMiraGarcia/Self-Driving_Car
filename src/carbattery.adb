@@ -2,8 +2,8 @@ package body carbattery with SPARK_Mode is
 
    procedure ChargeBattery (This : in out Battery) is
    begin
-      if This.maxCharge - This.charge >= 10 then
-         This.charge := This.charge + DischargeRatio * 10;
+      if This.maxCharge - This.charge >= 100 then
+         This.charge := This.charge + DischargeRatio * 100;
       else
          This.charge := This.maxCharge;
       end if;

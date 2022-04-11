@@ -18,27 +18,28 @@ is
       gearStatus      : Gear       := Parked;
       carStatus       : Status     := Off;
       accelerating    : Boolean    := False;
+      emergencyBreak  : Boolean    := False;
       diagnosis       : Boolean    := False;
-      carPosition     : RoadSize    := 14;
+      carPosition     : RoadSize   := 14;
       steeringWheel   : Direction  := Straight;
-      carSize         : RoadSize    := 9;
+      carSize         : RoadSize   := 9;
       baterryPer      : Float;
 
    end record;
    StringError : Unbounded_String;
 
-   procedure Accelerate (This : in out Car) with
-      Pre => This.speed <= SpeedRange'Last and
+   procedure Accelerate (This : in out Car; Ammount : in SpeedRange) with
+      Pre => This.speed < SpeedRange'Last and
       This.speed < This.currentRoad.speed_limit and
       (This.gearStatus = Forward or This.gearStatus = Reversing) and
-      This.accelerating = True,
-      Post => This.speed = This.speed'Old + 1;
+      This.accelerating = True and Ammount <= This.currentRoad.speed_limit - This.speed,
+      Post => This.speed = This.speed'Old + Ammount;
 
-   procedure Decelerate (This : in out Car) with
+   procedure Decelerate (This : in out Car; Ammount : in SpeedRange) with
       Pre => This.speed > SpeedRange'First and
       (This.gearStatus = Forward or This.gearStatus = Reversing) and
-      This.accelerating = False,
-      Post => This.speed = This.speed'Old - 1;
+      This.accelerating = False and Ammount <= This.speed - SpeedRange'First,
+      Post => This.speed = This.speed'Old - Ammount;
 
    procedure StartingCar (This : in out Car) with
       Pre => This.gearStatus = Parked and This.carStatus = Off and
@@ -84,9 +85,9 @@ is
       (for all i in This.dashboardLights.lights'Range =>
          This.dashboardLights.lights (i).error = Off);
 
-   procedure Move (This : in out Car; steeringWheel : in Direction ) with
-     Pre => This.carPosition >= RoadSize'First and then This.carPosition <= RoadSize'Last
-     and then steeringWheel /= Straight;
-
+   procedure Move (This : in out Car; steeringWheel : in Direction) with
+      Pre => This.carPosition >= RoadSize'First
+      and then This.carPosition <= RoadSize'Last
+      and then steeringWheel /= Straight;
 
 end vehicle;

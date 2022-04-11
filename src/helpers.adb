@@ -92,19 +92,20 @@ is
 
       if dummy_car.baterryPer >= 0.5 then
          Put_Line (HT & HT & HT & "Battery Status: " & ESC & "[1;30m" & ESC &
-                     "[102m" & dummy_car.carBattery.charge'Image & "% " & ESC & "[0m");
+                     "[102m" & Integer(dummy_car.carBattery.charge / BatteryCharge(10))'Image & "% " & ESC & "[0m");
       elsif (dummy_car.baterryPer >= 0.1 and dummy_car.baterryPer < 0.5) then
          Put_Line (HT & HT & HT & "Battery Status: " & ESC & "[1;30m" & ESC &
-                     "[43m" & dummy_car.carBattery.charge'Image & "% " & ESC & "[0m");
+                     "[43m" & Integer(dummy_car.carBattery.charge / BatteryCharge(10))'Image & "% " & ESC & "[0m");
       else
          Put_Line (HT & HT & HT & "Battery Status: " & ESC & "[1;30m" & ESC &
-                     "[101m" & dummy_car.carBattery.charge'Image & "% " & ESC & "[0m");
+                     "[101m" & Integer(dummy_car.carBattery.charge / BatteryCharge(10))'Image & "% " & ESC & "[0m");
       end if;
       Put_Line ("");
-      Put_Line (HT & "__SPEEDOMETER_________________________________________________");
+      Put_Line (HT & "__DRIVING_____________________________________________________");
       Put (HT & " Road Max Speed: " & dummy_car.currentRoad.speed_limit'Image & " mph");
       Put_Line (HT & HT & "Accelerating: " & "  " & dummy_car.accelerating'Image);
-      Put_Line (HT & " Car Speed: " & HT & " " & dummy_car.speed'Image & " mph");
+      Put (HT & " Car Speed: " & HT & dummy_car.speed'Image & " mph");
+      Put_Line (HT & HT & "      Steering Wheel: " & dummy_car.steeringWheel'Image);
       Put_Line ("");
    end PrintHeader;
 

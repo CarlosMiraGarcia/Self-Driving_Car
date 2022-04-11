@@ -5,7 +5,7 @@ package carbattery with SPARK_Mode is
    wait : Constant Integer := 3;
    currentWait : Integer := 0;
 
-   type BatteryCharge is range 0..100;
+   type BatteryCharge is range 0..1000;
    DischargeRatio :  constant BatteryCharge := 1;
 
    type Battery is record

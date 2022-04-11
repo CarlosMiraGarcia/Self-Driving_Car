@@ -96,7 +96,7 @@ procedure Main is
 
 begin
    OpenFile;
-   dummy_car.currentRoad.SetSpeedLimit (20);
+   dummy_car.currentRoad.SetSpeedLimit (70);
    loop
       delay (0.5);
       Clear;
@@ -124,7 +124,7 @@ begin
             elsif dummy_car.carStatus = Off and dummy_car.gearStatus = Parked and
               dummy_car.carBattery.charging = Off then
                if NewRun then
-                  --RandomFault (dummy_car.dashboardLights);
+                  RandomFault (dummy_car.dashboardLights);
                   NewRun := False;
                end if;
                StartingCar (dummy_car);
@@ -203,6 +203,9 @@ begin
             Drive (dummy_car);
             if dummy_car.speed > 0 then
                CurrentIndex := CurrentIndex + 1;
+            elsif dummy_car.emergencyBreak = True then
+               PrintError(" Emergency brake!! Obstacle cannot be avoided!! ");
+               Dummy_Car.emergencyBreak := False;
             end if;
          elsif dummy_car.carBattery.charging = On then
             PlugBattery (dummy_car);

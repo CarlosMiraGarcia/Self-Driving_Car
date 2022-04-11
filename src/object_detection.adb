@@ -51,12 +51,24 @@ is
                        and Dummy_Car.carSize = 9 and ShoulderToObject + t = Dummy_Car.carPosition + h then
                         Pos := Integer(RoadShoulderPos + (RoadSize'Last - Dummy_Car.carSize));
                         if ShoulderToObject > 9 then
-                           Move (Dummy_Car, Left);
+                           Move (Dummy_Car, Right);
+                           Dummy_Car.steeringWheel := Right;
                         elsif ShoulderToObject <= 9 and Pos <= NewLine'Length then
                            if ScanRoad (NewLine, Pos, RoadSurface) and Dummy_Car.carPosition >= RoadSize'First then
-                              Move (Dummy_Car, Right);
+                              Move (Dummy_Car, Left);
+                              Dummy_Car.steeringWheel := Left;
                            elsif ScanRoad (NewLine, Pos, RoadObject) then
-                              Put_Line ("Cannot move");
+                              if h = 0 and (Dummy_Car.gearStatus = Forward or Dummy_Car.gearStatus = Reversing) then
+                                 Dummy_Car.emergencyBreak := True;
+                                 Dummy_Car.accelerating := False;
+                                 if Dummy_Car.speed > SpeedRange'First + 8 then
+                                    Decelerate (Dummy_Car, 8);
+                                 elsif Dummy_Car.speed > SpeedRange'First + 4 then
+                                    Decelerate (Dummy_Car, 4);
+                                 elsif Dummy_Car.speed > SpeedRange'First + 1 then
+                                    Decelerate (Dummy_Car, 1);
+                                 end if;
+                              end if;
                            end if;
                         end if;
                      end if;
@@ -64,6 +76,9 @@ is
                end loop;
                exit;
             end if;
+            Dummy_Car.steeringWheel := Straight;
+
+
          end loop;
       end if;
    end AvoidObject;

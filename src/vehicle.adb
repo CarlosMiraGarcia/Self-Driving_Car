@@ -1,33 +1,35 @@
-with Ada.Text_IO;            use Ada.Text_IO;
+with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Characters.Latin_1; use Ada.Characters.Latin_1;
 with Ada.Strings.Maps;
-with helpers;                use helpers;
+with helpers; use helpers;
 
 package body vehicle with
    SPARK_Mode
 is
 
-   procedure Accelerate (This : in out Car) is
+   procedure Accelerate (This : in out Car; Ammount : in SpeedRange) is
    begin
-      This.speed := This.speed + 1;
+      This.speed := This.speed + Ammount;
    end Accelerate;
 
-   procedure Decelerate (This : in out Car) is
+   procedure Decelerate (This : in out Car; Ammount : in SpeedRange) is
    begin
-      This.speed := This.speed - 1;
+      This.speed := This.speed - Ammount;
    end Decelerate;
 
    procedure StartingCar (This : in out Car) is
       type Index is range 1 .. 15;
    begin
-      if (for all i in This.dashboardLights.lights'Range =>
-           This.dashboardLights.lights (i).error = Off) then
+      if
+        (for all i in This.dashboardLights.lights'Range =>
+           This.dashboardLights.lights (i).error = Off)
+      then
          This.dashboardLights.lights (ReadyToDrive).state := On;
       else
          PrintError ("   Run the diagnosis tool to fix the problems   ");
       end if;
       if This.baterryPer <= 0.10 then
-         This.dashboardLights.lights(LowBattery).state := On;
+         This.dashboardLights.lights (LowBattery).state := On;
       end if;
 
       This.carStatus := On;
@@ -76,18 +78,18 @@ is
       if This.gearStatus = Parked then
          if This.carBattery.charge < BatteryCharge'Last then
             ChargeBattery (This.carBattery);
-            This.dashboardLights.lights (Charging).state     := On;
+            This.dashboardLights.lights (Charging).state := On;
             This.dashboardLights.lights (ReadyToDrive).state := Off;
-            This.carBattery.charging                         := On;
+            This.carBattery.charging := On;
          elsif This.carBattery.charge = BatteryCharge'Last then
-            This.dashboardLights.lights (Charging).state   := Off;
-            This.carBattery.charging                       := Off;
+            This.dashboardLights.lights (Charging).state := Off;
+            This.carBattery.charging := Off;
             if This.carStatus = On then
                This.dashboardLights.lights (ReadyToDrive).state := On;
             end if;
          end if;
-         if this.baterryPer >= 0.1 then
-           This.dashboardLights.lights (LowBattery).state := Off;
+         if This.baterryPer >= 0.1 then
+            This.dashboardLights.lights (LowBattery).state := Off;
          end if;
       else
          PrintError (" Gear needs to be set to Parked before charging ");
@@ -102,19 +104,23 @@ is
            Integer (This.carBattery.charge) - Integer (This.speed) > 1
          then
             UseBattery (This.carBattery);
-            if This.speed < This.currentRoad.speed_limit then
-               Accelerate (This);
+            if This.speed <= This.currentRoad.speed_limit - 5 then
+               Accelerate (This, 5);
+            elsif This.speed <= This.currentRoad.speed_limit - 1 then
+               Accelerate (This, 1);
             end if;
          elsif This.accelerating = False then
-            if This.speed > SpeedRange'First then
-               UseBattery (This.carBattery);
-               Decelerate (This);
+            if This.speed >= SpeedRange'First + 5 then
+               Decelerate (This, 5);
+            elsif This.speed >= SpeedRange'First + 1 then
+               Decelerate (This, 1);
             elsif This.speed = 0 then
                This.gearStatus := Parked;
                This.carStatus := Off;
                This.dashboardLights.lights (ReadyToDrive).state := Off;
             end if;
-         elsif Integer (This.carBattery.charge) - Integer (This.speed) <= 1 then
+         elsif Integer (This.carBattery.charge) - Integer (This.speed) <= 1
+         then
             This.dashboardLights.lights (LowBattery).state := On;
             if This.accelerating = True then
                PrintError ("      Not enough battery. Reducing speed now    ");
@@ -176,15 +182,13 @@ is
       This.dashboardLights.lights (ReadyToDrive).state := On;
    end FixProblems;
 
-   procedure Move (This : in out Car; steeringWheel : in Direction ) is
+   procedure Move (This : in out Car; steeringWheel : in Direction) is
    begin
-      if steeringWheel = Left and This.carPosition /= RoadSize'First then
+      if steeringWheel = Right and This.carPosition /= RoadSize'First then
          This.carPosition := This.carPosition - 1;
-      elsif steeringWheel = Right and This.carPosition /= RoadSize'Last then
+      elsif steeringWheel = Left and This.carPosition /= RoadSize'Last then
          This.carPosition := This.carPosition + 1;
       end if;
    end Move;
-
-
 
 end vehicle;
