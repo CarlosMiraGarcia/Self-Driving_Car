@@ -18,8 +18,6 @@ procedure Main is
    CurrentIndex : Integer := 7;
    Lines_Array  : LinesArray;
 
-
-
    procedure PrintRoad (Lines_Array : in LinesArray; Index : in Integer) is
       SidePositionObj : Integer          := 0;
       SideToObject    : Integer          := 0;
