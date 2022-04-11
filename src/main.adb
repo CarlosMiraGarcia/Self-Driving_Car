@@ -3,7 +3,8 @@ with Ada.Characters.Latin_1;      use Ada.Characters.Latin_1;
 with Ada.Text_IO.Text_Streams;    use Ada.Text_IO.Text_Streams;
 with Ada.Strings.Unbounded;       use Ada.Strings.Unbounded;
 with vehicle_controller;          use vehicle_controller;
-with dashboard_controller;        use dashboard_controller;
+with diagnosis_controller;        use diagnosis_controller;
+with dashboard_lights_controller; use dashboard_lights_controller;
 with battery_controller;          use battery_controller;
 with road_controller;             use road_controller;
 with helpers;                     use helpers;
@@ -137,7 +138,7 @@ begin
               dummy_car.carBattery.charging = Off
             then
                if NewRun then
-                  --RandomFault (dummy_car.dashboardLights);
+                  RandomFault (dummy_car.dashboardLights);
                   NewRun := False;
                end if;
                StartingCar (dummy_car);

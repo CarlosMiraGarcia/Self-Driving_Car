@@ -1,7 +1,7 @@
-with Ada.Strings.Unbounded;    use Ada.Strings.Unbounded;
-with dashboard_controller;     use dashboard_controller;
-with road_controller;          use road_controller;
-with battery_controller;       use battery_controller;
+with Ada.Strings.Unbounded;       use Ada.Strings.Unbounded;
+with dashboard_lights_controller; use dashboard_lights_controller;
+with road_controller;             use road_controller;
+with battery_controller;          use battery_controller;
 
 package vehicle_controller with
    SPARK_Mode
@@ -32,7 +32,8 @@ is
       Pre => This.speed < SpeedRange'Last and
       This.speed < This.currentRoad.speed_limit and
       (This.gearStatus = Forward or This.gearStatus = Reversing) and
-      This.accelerating = True and Ammount <= This.currentRoad.speed_limit - This.speed,
+      This.accelerating = True and
+      Ammount <= This.currentRoad.speed_limit - This.speed,
       Post => This.speed = This.speed'Old + Ammount;
 
    procedure Decelerate (This : in out Car; Ammount : in SpeedRange) with
@@ -71,19 +72,6 @@ is
       This.carBattery.charge > This.carBattery.minCharge and
       This.carBattery.charge <= This.carBattery.maxCharge and
       This.carBattery.charging = Off and This.carStatus = On;
-
-   procedure DiagnosisTool (This : in Car) with
-      Pre => This.carStatus = On and This.gearStatus = Parked and
-      (for some i in This.dashboardLights.lights'Range =>
-         This.dashboardLights.lights (i).error = On);
-
-   procedure FixProblems (This : in out Car) with
-      Pre => This.carStatus = On and This.gearStatus = Parked and
-      (for some i in This.dashboardLights.lights'Range =>
-         This.dashboardLights.lights (i).error = On),
-      Post =>
-      (for all i in This.dashboardLights.lights'Range =>
-         This.dashboardLights.lights (i).error = Off);
 
    procedure Move (This : in out Car; steeringWheel : in Direction) with
       Pre => This.carPosition >= RoadSize'First

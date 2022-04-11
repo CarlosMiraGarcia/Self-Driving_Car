@@ -3,7 +3,7 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Characters.Latin_1; use Ada.Characters.Latin_1;
 with helpers; use helpers;
 
-package body dashboard_controller with SPARK_Mode is
+package body dashboard_lights_controller with SPARK_Mode is
 
    procedure LightsOff (This : in out Dashboard) is
    begin
@@ -49,4 +49,4 @@ package body dashboard_controller with SPARK_Mode is
    end CreateLights;
 
 
-end dashboard_controller;
+end dashboard_lights_controller;

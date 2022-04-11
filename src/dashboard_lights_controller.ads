@@ -1,4 +1,4 @@
-package dashboard_controller with SPARK_Mode is
+package dashboard_lights_controller with SPARK_Mode is
 
    --Types
    type Switch is (On, Off);
@@ -29,4 +29,4 @@ package dashboard_controller with SPARK_Mode is
 
    function CreateLights return Dashboard;
 
-end dashboard_controller;
+end dashboard_lights_controller;
