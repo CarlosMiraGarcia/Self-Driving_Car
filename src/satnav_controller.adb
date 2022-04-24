@@ -10,7 +10,7 @@ package body satnav_controller with
 is
 
    procedure PrintRoad
-     (Lines_Array : in LinesArray; Index : in Integer; dummy_car : in out Car)
+     (Lines_Array : in Lines; Index : in Integer; dummy_car : in out Car)
    is
    begin
       if Lines_Array'Last > Index + DisplayedLines then

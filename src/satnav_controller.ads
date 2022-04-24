@@ -9,7 +9,7 @@ is
    DisplayedLines : constant Integer := 33;
 
    procedure PrintRoad
-     (Lines_Array : in     LinesArray; Index : in Integer;
+     (Lines_Array : in     Lines; Index : in Integer;
       dummy_car   : in out Car) with
       Pre => Index <= Integer'Last - DisplayedLines and Index > 5;
 

@@ -99,18 +99,16 @@ is
    procedure Drive (This : in out Car) is
    begin
       if This.carStatus = On then
-         if This.braking = False and This.accelerating = True then
-            if This.speed <= This.currentRoad.speed_limit and
-              This.braking = False and
-              Integer (This.carBattery.currentCharge) - Integer (This.speed) >
-                1
-            then
-               UseBattery (This.carBattery);
-               if This.speed <= This.currentRoad.speed_limit - 5 then
-                  Accelerate (This, 5);
-               elsif This.speed <= This.currentRoad.speed_limit - 1 then
-                  Accelerate (This, 1);
-               end if;
+         if This.braking = False and This.accelerating = True and
+           This.speed <= This.currentRoad.speed_limit and
+           This.braking = False and
+           Integer (This.carBattery.currentCharge) - Integer (This.speed) > 1
+         then
+            UseBattery (This.carBattery);
+            if This.speed <= This.currentRoad.speed_limit - 5 then
+               Accelerate (This, 5);
+            elsif This.speed <= This.currentRoad.speed_limit - 1 then
+               Accelerate (This, 1);
             end if;
          elsif This.braking or This.speed > This.currentRoad.speed_limit then
             if This.speed >= SpeedRange'First + 10 then
@@ -135,7 +133,7 @@ is
             This.dashboardLights.lights (LowBattery).state := On;
             if This.braking = False then
                PrintError ("      Not enough battery. Reducing speed now    ");
-               This.braking := True;
+               This.braking      := True;
                This.accelerating := False;
             end if;
          end if;

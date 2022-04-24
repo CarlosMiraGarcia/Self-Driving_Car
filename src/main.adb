@@ -18,7 +18,7 @@ procedure Main is
    Ch           : Character := Ada.Characters.Latin_1.LC_L;
    NewRun       : Boolean   := True;
    CurrentIndex : Integer   := 6;
-   Lines_Array  : LinesArray;
+   Lines_Array  : Lines;
 
    procedure OpenFile is
       File_Input : File_Type;
@@ -85,7 +85,7 @@ procedure Main is
 
 begin
    OpenFile;
-   SetSpeedLimit (dummy_car.currentRoad, 20);
+   SetSpeedLimit (dummy_car.currentRoad, 60);
    loop
       delay (0.5);
       Clear;

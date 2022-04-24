@@ -25,34 +25,36 @@ is
 
    procedure AvoidObject (NewLine : in ScanLine; Dummy_Car : in out Car; j : in Integer)
    is
-      ShoulderToObject : RoadSize;
-      SizeObject       : RoadSize;
-      RoadShoulderPos  : RoadSize := 2;
-      Pos              : Integer;
+      ShoulderToObject : LineSize;
+      SizeObject       : LineSize;
+      RoadShoulderPos  : LineSize := 1;
+      Pos              : LineSize;
 
    begin
       if j < 10 then
-         for k in RoadSize'Range loop
-            if ScanRoad(NewLine, Integer(k), RoadLane) then
+         for k in ScanLine'First .. ScanLine'Last loop
+            if ScanRoad(NewLine, Integer(k), RoadLane) and Dummy_Car.size = 9 then
                RoadShoulderPos := k;
-            elsif k - RoadShoulderPos > 1 and ScanRoad (NewLine, Integer(k), RoadObject) then
-               ShoulderToObject := k - RoadShoulderPos - 1;
+            elsif k - RoadShoulderPos >= 1 and ScanRoad (NewLine, Integer(k), RoadObject) then
+               ShoulderToObject := k - RoadShoulderPos;
                SizeObject       := 1;
-               for p in k + 1 .. RoadSize'Last loop
-                  if SizeObject < RoadSize'Last and ScanRoad (NewLine, Integer(p), RoadObject) then
-                     SizeObject := SizeObject + RoadSize(1);
+               for p in k + 1 .. ScanLine'Last loop
+                  if SizeObject < Integer(RoadSize'Last) and ScanRoad (NewLine, Integer(p), RoadObject) then
+                     SizeObject := SizeObject + 1;
                   else
                      exit;
                   end if;
                end loop;
-               for t in 0 .. SizeObject + 1 loop
-                  for h in 0..Dummy_Car.size loop
-                     if Dummy_Car.carPosition <= RoadSize'Last
-                       and Dummy_Car.size = 9 and ShoulderToObject + t = Dummy_Car.carPosition + h then
-                        Pos := Integer(RoadShoulderPos + (RoadSize'Last - Dummy_Car.size));
+               for t in 0 .. SizeObject loop
+                  for h in 1..Dummy_Car.size loop
+                     if Dummy_Car.carPosition <= RoadSize'Last and Dummy_Car.size = 9
+                       and ShoulderToObject + t = LineSize (Dummy_Car.carPosition) + LineSize(h)
+                       and RoadShoulderPos < LineSize(RoadSize'Last) - LineSize(Dummy_Car.size) - 1
+                     then
+                        Pos := RoadShoulderPos + (LineSize(RoadSize'Last) - LineSize(Dummy_Car.size)) + 1;
                         if ShoulderToObject > 9 and Dummy_Car.carPosition > RoadSize'First then
                            MoveRight (Dummy_Car);
-                        elsif ShoulderToObject <= 9 and Pos <= NewLine'Length then
+                        elsif ShoulderToObject <= 9 and Pos <= LineSize'Last then
                            if ScanRoad (NewLine, Pos, RoadSurface) and Dummy_Car.carPosition < RoadSize'Last then
                               MoveLeft (Dummy_Car);
                            elsif ScanRoad (NewLine, Pos, RoadObject) then

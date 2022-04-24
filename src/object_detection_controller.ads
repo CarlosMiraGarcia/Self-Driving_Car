@@ -6,10 +6,10 @@ package object_detection_controller with
    SPARK_Mode
 is
    --Types
-   type ScanLine is new String (1 .. 55);
-   type LinesArray is array (1 .. 340) of ScanLine;
+   subtype LineSize is Integer range 1..55;
+   type ScanLine is new String (LineSize'First..LineSize'Last);
+   type Lines is array (1 .. 340) of ScanLine;
    type Detection is (RoadLane, RoadObject, RoadSurface);
-   type DistanceFoot is range 1 .. 100;
 
    function ScanRoad
      (NewLine : in ScanLine; Pos : in Integer; Object : in Detection)
