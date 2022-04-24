@@ -9,6 +9,7 @@ with battery_controller;          use battery_controller;
 with road_controller;             use road_controller;
 with helpers;                     use helpers;
 with object_detection_controller; use object_detection_controller;
+with satnav_controller;           use satnav_controller;
 with Ada.Text_IO.Unbounded_IO;
 with Ada.Numerics.Discrete_Random;
 
@@ -16,53 +17,8 @@ procedure Main is
    dummy_car    : Car;
    Ch           : Character := Ada.Characters.Latin_1.LC_L;
    NewRun       : Boolean   := True;
-   CurrentIndex : Integer   := 7;
+   CurrentIndex : Integer   := 6;
    Lines_Array  : LinesArray;
-
-   procedure PrintRoad (Lines_Array : in LinesArray; Index : in Integer) is
-      SidePositionObj : Integer          := 0;
-      SideToObject    : Integer          := 0;
-      SizeObject      : Integer          := 0;
-      DisplayedLines  : constant Integer := 33;
-   begin
-      if Lines_Array'Last > Index + DisplayedLines then
-         for i in 1 .. 10 loop
-            if
-              (Lines_Array (Index)'Length >
-               i + Integer (dummy_car.carPosition) + 1)
-            then
-               if ScanRoad (Lines_Array (Index), i, RoadShoulder) then
-                  Put_Line
-                    (HT &
-                     "__SAT_NAV_____________________________________________________");
-                  SplitAndRemove
-                    (String (Lines_Array (Index - 5)),
-                     i + Integer (dummy_car.carPosition), "  _____  ");
-                  SplitAndRemove
-                    (String (Lines_Array (Index - 4)),
-                     i + Integer (dummy_car.carPosition), " /-----\ ");
-                  SplitAndRemove
-                    (String (Lines_Array (Index - 3)),
-                     i + Integer (dummy_car.carPosition), "(|     |)");
-                  SplitAndRemove
-                    (String (Lines_Array (Index - 2)),
-                     i + Integer (dummy_car.carPosition), " |_____| ");
-                  SplitAndRemove
-                    (String (Lines_Array (Index - 1)),
-                     i + Integer (dummy_car.carPosition), "(|\___/|)");
-                  SplitAndRemove
-                    (String (Lines_Array (Index)),
-                     i + Integer (dummy_car.carPosition), " \_o_o_/ ");
-                  exit;
-               end if;
-            end if;
-         end loop;
-         for j in 1 .. 30 loop
-            Put_Line (HT & "   " & String (Lines_Array (Index + j)));
-            AvoidObject (Lines_Array (Index + j), dummy_car, j);
-         end loop;
-      end if;
-   end PrintRoad;
 
    procedure OpenFile is
       File_Input : File_Type;
@@ -74,7 +30,30 @@ procedure Main is
       Close (File => File_Input);
    end OpenFile;
 
+   procedure RandomSpeed (This : in out Road) is
+      package Rand_Int is new Ada.Numerics.Discrete_Random (SpeedRange);
+      use Rand_Int;
+      Gene      : Generator;
+      NumRandom : SpeedRange;
+      Index     : Integer := 20;
+      RandomNum : Integer;
+   begin
+      for i in 1..2 loop
+         Reset (Gene);
+         NumRandom := Random (Gene);
+         RandomNum := Integer(NumRandom);
+         if Index = Integer (NumRandom) then
+            This.speed_limit := NumRandom;
+         end if;
+         Index := Index + 10;
+         if Index = 80 then
+            Index := 20;
+         end if;
+      end loop;
+   end RandomSpeed;
+
    procedure RandomFault (This : in out Dashboard) is
+      type RandRange is range 1 .. DashboardLights'Length;
       package Rand_Int is new Ada.Numerics.Discrete_Random (RandRange);
       use Rand_Int;
       Gene      : Generator;
@@ -106,7 +85,7 @@ procedure Main is
 
 begin
    OpenFile;
-   dummy_car.currentRoad.SetSpeedLimit (70);
+   SetSpeedLimit (dummy_car.currentRoad, 20);
    loop
       delay (0.5);
       Clear;
@@ -126,25 +105,26 @@ begin
          end if;
       elsif not dummy_car.diagnosis then
          PrintHeader (dummy_car);
-         PrintRoad (Lines_Array, CurrentIndex);
-         Put_Line ("");
+         PrintRoad (Lines_Array, CurrentIndex, dummy_car);
          Put_Line ("");
          PrintMenu;
          if Ch = Ada.Characters.Latin_1.LC_S then
-            if dummy_car.carBattery.charge = BatteryCharge'First then
+            if dummy_car.carBattery.currentCharge = BatteryCharge'First then
                PrintError ("  There is not enough battery to start the car  ");
             elsif dummy_car.carStatus = Off and
               dummy_car.gearStatus = Parked and
               dummy_car.carBattery.charging = Off
             then
                if NewRun then
-                  RandomFault (dummy_car.dashboardLights);
+                  --RandomFault (dummy_car.dashboardLights);
                   NewRun := False;
                end if;
                StartingCar (dummy_car);
             elsif dummy_car.carStatus = On then
                if dummy_car.speed > SpeedRange'First then
+                  dummy_car.braking := True;
                   dummy_car.accelerating := False;
+
                else
                   LightsOff (dummy_car.dashboardLights);
                   dummy_car.carStatus := Off;
@@ -201,11 +181,11 @@ begin
                PrintError ("      Errors found. Run the diagnosis tool      ");
             end if;
          elsif Ch = Ada.Characters.Latin_1.LC_C then
-            if dummy_car.carBattery.charge < BatteryCharge'Last and
+            if dummy_car.carBattery.currentCharge < BatteryCharge'Last and
               dummy_car.gearStatus = Parked
             then
                dummy_car.carBattery.charging := On;
-            elsif dummy_car.carBattery.charge = BatteryCharge'Last and
+            elsif dummy_car.carBattery.currentCharge = BatteryCharge'Last and
               dummy_car.gearStatus = Parked
             then
                PrintError ("  Cannot charge the battery because it is full  ");
@@ -224,11 +204,9 @@ begin
            dummy_car.dashboardLights.lights (ReadyToDrive).state = On
          then
             Drive (dummy_car);
+            RandomSpeed (dummy_car.currentRoad);
             if dummy_car.speed > 0 then
                CurrentIndex := CurrentIndex + 1;
-            elsif dummy_car.emergencyBreak = True then
-               PrintError (" Emergency brake!! Obstacle cannot be avoided!! ");
-               dummy_car.emergencyBreak := False;
             end if;
          elsif dummy_car.carBattery.charging = On then
             PlugBattery (dummy_car);

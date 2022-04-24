@@ -1,28 +1,34 @@
 with Ada.Text_IO; use Ada.Text_IO;
-package battery_controller with SPARK_Mode is
 
-   type Status is (On, Off);
-   wait : Constant Integer := 3;
-   currentWait : Integer := 0;
+package battery_controller with
+   SPARK_Mode
+is
 
-   type BatteryCharge is range 0..1000;
-   DischargeRatio :  constant BatteryCharge := 1;
-
+   type ChargingStatus is (On, Off);
+   type BatteryCharge is range 0 .. 1_000;
    type Battery is record
-      charge : BatteryCharge;
-      charging : Status;
-      minCharge: BatteryCharge;
-      maxCharge: BatteryCharge;
+      currentCharge : BatteryCharge;
+      charging      : ChargingStatus;
+      minCharge     : BatteryCharge;
+      maxCharge     : BatteryCharge;
+      batteryPer    : Float;
    end record;
 
    procedure ChargeBattery (This : in out Battery) with
-     Pre => This.charge < This.maxCharge,
-     Post => This.charge >= This.charge'Old;
+      Pre  => This.currentCharge < This.maxCharge,
+      Post => This.currentCharge >= This.currentCharge'Old;
 
    procedure UseBattery (This : in out Battery) with
-     Pre => This.charge > This.minCharge and This.charging = Off and This.charge <= This.maxCharge,
-     Post => This.charge <= This.charge'Old;
+      Pre  => This.currentCharge > This.minCharge and This.charging = Off,
+      Post => This.currentCharge < This.currentCharge'Old;
+
+   function BatteryPercentage (This : BatteryCharge) return Float with
+      Post => BatteryPercentage'Result >= 0.0 and
+      BatteryPercentage'Result <= 100.0;
 
    function CreateBattery return Battery;
+
+private
+   DischargeRatio : constant BatteryCharge := 1;
 
 end battery_controller;

@@ -6,41 +6,27 @@ with battery_controller;          use battery_controller;
 package vehicle_controller with
    SPARK_Mode
 is
-
    type Gear is (Parked, Forward, Reversing);
-   type Accelerator is (Yes, No);
+   type VechicleStatus is (On, Off);
    type Direction is (Straight, Left, Right);
    type Car is record
-      speed           : SpeedRange := 0;
-      dashboardLights : Dashboard  := CreateLights;
-      carBattery      : Battery    := CreateBattery;
-      currentRoad     : Road       := CreateRoad;
-      gearStatus      : Gear       := Parked;
-      carStatus       : Status     := Off;
-      accelerating    : Boolean    := False;
-      emergencyBreak  : Boolean    := False;
-      diagnosis       : Boolean    := False;
-      carPosition     : RoadSize   := 14;
-      steeringWheel   : Direction  := Straight;
-      carSize         : RoadSize   := 9;
-      baterryPer      : Float;
-
+      speed           : SpeedRange     := 0;
+      dashboardLights : Dashboard      := CreateLights;
+      carBattery      : Battery        := CreateBattery;
+      currentRoad     : Road           := CreateRoad;
+      gearStatus      : Gear           := Parked;
+      carStatus       : VechicleStatus := Off;
+      accelerating    : Boolean        := False;
+      braking         : Boolean        := False;
+      diagnosis       : Boolean        := False;
+      carPosition     : RoadSize       := 15;
+      steeringWheel   : Direction      := Straight;
+      size            : RoadSize       := 9;
    end record;
-   StringError : Unbounded_String;
 
-   procedure Accelerate (This : in out Car; Ammount : in SpeedRange) with
-      Pre => This.speed < SpeedRange'Last and
-      This.speed < This.currentRoad.speed_limit and
-      (This.gearStatus = Forward or This.gearStatus = Reversing) and
-      This.accelerating = True and
-      Ammount <= This.currentRoad.speed_limit - This.speed,
-      Post => This.speed = This.speed'Old + Ammount;
-
-   procedure Decelerate (This : in out Car; Ammount : in SpeedRange) with
-      Pre => This.speed > SpeedRange'First and
-      (This.gearStatus = Forward or This.gearStatus = Reversing) and
-      This.accelerating = False and Ammount <= This.speed - SpeedRange'First,
-      Post => This.speed = This.speed'Old - Ammount;
+   procedure Brake (Speed : in out SpeedRange; Decrement : in SpeedRange) with
+      Pre => Decrement <= Speed and Speed > SpeedRange'First,
+      Post => Speed = Speed'Old - Decrement;
 
    procedure StartingCar (This : in out Car) with
       Pre => This.gearStatus = Parked and This.carStatus = Off and
@@ -49,12 +35,12 @@ is
       Post => This.carStatus = On;
 
    procedure GearForward (This : in out Car) with
-      Pre => This.speed = 0 and This.carBattery.charging = Off and
+      Pre => This.speed = 0 and
       This.dashboardLights.lights (ReadyToDrive).state = On,
       Post => This.gearStatus = Forward;
 
    procedure GearReversing (This : in out Car) with
-      Pre => This.speed = 0 and This.carBattery.charging = Off and
+      Pre => This.speed = 0 and
       This.dashboardLights.lights (ReadyToDrive).state = On,
       Post => This.gearStatus = Reversing;
 
@@ -64,18 +50,29 @@ is
 
    procedure PlugBattery (This : in out Car) with
       Pre => This.gearStatus = Parked and
-      This.carBattery.charge < This.carBattery.maxCharge;
+      This.carBattery.currentCharge < This.carBattery.maxCharge;
 
    procedure Drive (This : in out Car) with
       Pre => (This.dashboardLights.lights (ReadyToDrive).state = On) and
       (This.gearStatus = Forward or This.gearStatus = Reversing) and
-      This.carBattery.charge > This.carBattery.minCharge and
-      This.carBattery.charge <= This.carBattery.maxCharge and
+      This.carBattery.currentCharge > This.carBattery.minCharge and
+      This.carBattery.currentCharge <= This.carBattery.maxCharge and
       This.carBattery.charging = Off and This.carStatus = On;
 
-   procedure Move (This : in out Car; steeringWheel : in Direction) with
-      Pre => This.carPosition >= RoadSize'First
-      and then This.carPosition <= RoadSize'Last
-      and then steeringWheel /= Straight;
+   procedure MoveLeft (This : in out Car) with
+      Pre  => This.carPosition < RoadSize'Last,
+      Post => This.carPosition > This.carPosition'Old and
+      This.steeringWheel = Left;
+
+   procedure MoveRight (This : in out Car) with
+      Pre  => This.carPosition > RoadSize'First,
+      Post => This.carPosition < This.carPosition'Old and
+      This.steeringWheel = Right;
+
+private
+   procedure Accelerate (This : in out Car; Increment : in SpeedRange) with
+      Pre => This.speed < This.currentRoad.speed_limit and
+      Increment <= This.currentRoad.speed_limit - This.speed,
+      Post => This.speed = This.speed'Old + Increment;
 
 end vehicle_controller;

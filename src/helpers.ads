@@ -8,42 +8,36 @@ with battery_controller;    use battery_controller;
 package helpers with
    SPARK_Mode
 is
-   type ScanLine is new String (1 .. 55);
-   type LinesArray is array (1 .. 340) of ScanLine;
 
-   StringWarning : String :=
-     "------------------------------------------------------------";
+   function Invariant
+     (StringInput : in String; Pos : in Integer) return Boolean is
+     (StringInput'Last = 55 and StringInput'First = 1 and
+      Pos <= StringInput'Last and Pos >= 1);
 
    procedure Clear;
 
    procedure PrintError (This : in String) with
-      Pre    => This'Length < 100,
-      Global => (In_Out => (Ada.Text_IO.File_System),
-       Input => (StringWarning, Ada.Real_Time.Clock_Time));
+      Pre => This'Length <= Integer'Last - 23;
 
    procedure PrintInfo (This : in String) with
-      Pre    => This'Length < 100,
-      Global => (In_Out => (Ada.Text_IO.File_System),
-       Input => (StringWarning, Ada.Real_Time.Clock_Time));
+      Pre => This'Length <= Integer'Last - 19;
 
-   procedure SplitAndRemove
-     (StringInput : in String; Pos : in Integer; CarPrint : in String) with
-      Pre => Pos <= Integer'Last - 1 and then Pos > 1
-      and then StringInput'Length = 55 and then StringInput'Last > Pos + 1
-      and then StringInput'First = 1 and then CarPrint'Length = 9;
-
-   function GetChar (StringInput : String; Pos : Integer) return String with
-      Pre => StringInput'Length = 55 and then Pos <= StringInput'Length
-      and then Pos >= 1 and then StringInput'First <= Pos,
-      Post => GetChar'Result'Length = 1;
+   procedure PrintHeader (dummy_car : in Car);
 
    procedure PrintMenu;
 
    procedure PrintDiagnosisMenu;
 
-   procedure PrintHeader (dummy_car : in out Car) with
-      Pre => dummy_car.carBattery.charge > dummy_car.carBattery.minCharge and
-      dummy_car.carBattery.maxCharge = BatteryCharge'Last and
-      dummy_car.carBattery.charge <= dummy_car.carBattery.maxCharge;
+   procedure SplitAndRemove
+     (StringInput : in String; Pos : in Integer; CarPrint : in String) with
+      Pre => Invariant (StringInput, Pos) and CarPrint'Length = 9;
+
+   function GetChar (StringInput : String; Pos : Integer) return String with
+      Pre  => Invariant (StringInput, Pos),
+      Post => GetChar'Result'Length = 1;
+
+private
+   StringWarning : constant String :=
+     "------------------------------------------------------------";
 
 end helpers;
